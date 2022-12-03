@@ -4,21 +4,27 @@
     "login": "Login",
     "shop": "Shop Now"
   },
-  "change-locale": "Change locale to \"{{changeTo}}\"",
-  "to-second-page": "To second page",
-  "error-with-status": "A {{statusCode}} error occurred on server",
-  "error-without-status": "An error occurred on the server",
-  "title": "Home | next-i18next",
-  "blog": {
-    "optimized": {
-      "question": "Do you like to unleash some super powers to have all side optimized translations?",
-      "answer": "Then you may have a look at <1>this blog post</1>.",
-      "link": "https://locize.com/blog/next-i18next/"
-    },
-    "ssg": {
-      "question": "Do you want to use SSG (next export)?",
-      "answer": "Then you may have a look at <1>this blog post</1>.",
-      "link": "https://locize.com/blog/next-i18n-static/"
-    }
+  "why-order-us": {
+    "title": "Why order from us?",
+    "desc": "Here's why people choose to order from us",
+    "clean": { "title": "Clean,legal weed", "desc": "Shop high-quaity products from \n our reliable sources" },
+    "delivery": { "title": "2-Day delivery", "desc": "Expedited delvery to keep your \n cannabis fresh at all time" },
+    "quality": { "title": "Choosing the best", "desc": "Give importance to selecting \n the best products" }
+  },
+  "create": {
+    "title": "create",
+    "desc": "Cannabis introduce you"
+  },
+  "relax": {
+    "title": "relax",
+    "desc": "Cannabis introduce you"
+  },
+  "party": {
+    "title": "party",
+    "desc": "Cannabis introduce you"
+  },
+  "sleep": {
+    "title": "sleep",
+    "desc": "Cannabis introduce you"
   }
 }

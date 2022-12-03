@@ -1,8 +1,8 @@
 {
-    "home": "home",
-    "refferal": "refferal",
-    "product": "product",
-    "blog": "blog",
-    "doc": "doc",
-    "login": "login"
+    "home": "Home",
+    "refferal": "Refferal",
+    "product": "Product",
+    "blog": "Blog",
+    "doc": "Doc",
+    "login": "Login"
 }

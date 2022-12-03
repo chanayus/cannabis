@@ -4,7 +4,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        green: "#21955d",
+        green: {
+          100: "#D2E6DC",
+          200: "#A4CDB9",
+          300: "#77B397",
+          400: "#499A74",
+          DEFAULT: "#1C8151",
+        },
+        red: "#ad2b2b",
         black: "#333",
         orange: "#ED744A",
         peach: "#FFE9DF",
@@ -13,9 +20,11 @@ module.exports = {
         gray: "#5C5C5C",
         "gray-light": "#999999",
         "gray-white": "#E2E8F0",
+        "body-light": "#F6F6F6",
+        "body-dark": "#181818",
       },
     },
   },
-  darkMode: ['class', '[data-theme="dark"]'],
+  darkMode: ["class", '[data-theme="dark"]'],
   plugins: [],
 };

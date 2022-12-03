@@ -4,21 +4,27 @@
     "login": "เข้าสู่ระบบ",
     "shop": "สั่งซื้อ"
   },
-  "change-locale": "Sprache wechseln zu \"{{changeTo}}\"",
-  "to-second-page": "Zur zweiten Seite",
-  "error-with-status": "Auf dem Server ist ein Fehler ({{statusCode}}) aufgetreten",
-  "error-without-status": "Auf dem Server ist ein Fehler aufgetreten",
-  "title": "Hauptseite | next-i18next",
-  "blog": {
-    "optimized": {
-      "question": "Möchtest du einige Superkräfte entfesseln, um für alle Seiten optimierte Übersetzungen zu haben?",
-      "answer": "Dann schaue dir vielleicht <1>diesen Blogbeitrag</1> an.",
-      "link": "https://locize.com/blog/next-i18next-de/"
-    },
-    "ssg": {
-      "question": "Möchtest du SSG (next export) verwenden?",
-      "answer": "Dann schaue dir vielleicht <1>diesen Blogbeitrag</1> an.",
-      "link": "https://locize.com/blog/next-i18n-statisch/"
-    }
+  "why-order-us": {
+    "title": "ทำไมต้องสั่งซื้อกับเรา ?",
+    "desc": "และนี่คือเหตุทำไมผู้คนถึงเลือกสั่งซื้อกับเรา ",
+    "clean": { "title": "สะอาด, ถูกกฎหมาย", "desc": "เลือกซื้อผลิตภัณฑ์ที่มีคุณภาพสูงจาก\nแหล่งที่เชื่อถือได้ของเรา" },
+    "delivery": { "title": "สั่งภายใน 2 วัน", "desc": "จัดส่งด่วนเพื่อเก็บรักษากัญชาของคุณ\nให้สดใหม่ตลอดเวลา" },
+    "quality": { "title": "คัดเลือกสิ่งที่ดีที่สุด", "desc": "ให้ความสำคัญกับการเลือกผลิตภัณฑ์ที่ดีที่สุด" }
+  },
+  "create": {
+    "title": "สร้างสรรค์",
+    "desc": "Cannabis introduce you"
+  },
+  "relax": {
+    "title": "ผ่อนคลาย",
+    "desc": "Cannabis introduce you"
+  },
+  "party": {
+    "title": "ปาร์ตี้",
+    "desc": "Cannabis introduce you"
+  },
+  "sleep": {
+    "title": "นอนหลับ",
+    "desc": "Cannabis introduce you"
   }
 }
