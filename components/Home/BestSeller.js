@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { FiShoppingCart } from "react-icons/fi";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
@@ -12,6 +12,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const BestSeller = ({ t }) => {
   const [selectedWeight, setSelectedWeight] = useState("3g");
+  const [liked, setLiked] = useState(false);
   const containerRef = useRef(null);
   const productDetailRef = useRef(null);
 
@@ -54,9 +55,9 @@ const BestSeller = ({ t }) => {
             </Link>
           </div>
           <p className="text-green mb-4">{t("best seller")}</p>
-          <div>
+          <div className="flex justify-between items-center">
             <h2 className="font-bold text-4xl leading-[1.15]">Strawberry Kush</h2>
-            <button></button>
+            <button onClick={() => setLiked(!liked)}>{liked ? <FaHeart size="1.5rem" color="#de3c3c" /> : <FaRegHeart size="1.5rem" className="opacity-50" />}</button>
           </div>
           <p>earthy, sweet, floral</p>
           <div className="flex md:items-center justify-between md:flex-row flex-col-reverse mt-4">
