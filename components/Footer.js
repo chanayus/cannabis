@@ -1,6 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
+import Image from "next/image";
+
 
 const Footer = () => {
   const { t } = useTranslation("nav");
@@ -15,16 +17,16 @@ const Footer = () => {
       </div>
       <div className="flex items-center justify-center space-x-8 mb-6">
         <Link href="/">
-          <img src="/icons/facebook.svg" alt="facebook-icon" />
+          <Image src="/icons/facebook.svg" width={40} height={40} alt="facebook-icon" />
         </Link>
         <Link href="/">
-          <img src="/icons/twitter.svg" alt="twitter-icon" />
+          <Image src="/icons/twitter.svg" width={40} height={40} alt="twitter-icon" />
         </Link>
         <Link href="/">
-          <img src="/icons/telegram.svg" alt="telegram-icon" />
+          <Image src="/icons/telegram.svg" width={40} height={40} alt="telegram-icon" />
         </Link>
         <Link href="/">
-          <img src="/icons/discord.svg" alt="discord-icon" />
+          <Image src="/icons/discord.svg" width={40} height={40} alt="discord-icon" />
         </Link>
       </div>
       <p>© 2022 Your Company, Inc. All rights reserved.</p>

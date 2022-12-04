@@ -25,7 +25,7 @@ const Navbar = () => {
   };
 
   const changeLanguage = (lang) => {
-    replace(pathname, undefined, { locale: lang });
+    replace(pathname, undefined, { locale: lang, scroll: false });
   };
 
   return (

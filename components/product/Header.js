@@ -10,7 +10,7 @@ import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const BestSeller = ({ t }) => {
+const Header = ({ t }) => {
   const [selectedWeight, setSelectedWeight] = useState("3g");
   const [liked, setLiked] = useState(false);
   const containerRef = useRef(null);
@@ -48,16 +48,14 @@ const BestSeller = ({ t }) => {
         </div>
 
         <div ref={productDetailRef} className="p-8 lg:bg-transparent lg:dark:bg-transparent bg-white dark:bg-black ">
-          <div className="flex justify-between items-center mb-2">
-            <Image src="/images/aaa.svg" alt="aaa-badge" width={120} height={40} className="relative lg:left-[-8%] left-0" />
-            <Link href="/" className="text-orange">
-              {t("view all")}
-            </Link>
-          </div>
-          <p className="text-green mb-4">{t("best seller")}</p>
+          <Image src="/images/aaa.svg" alt="aaa-badge" width={120} height={40} className="mb-2 relative lg:left-[-8%] left-0" />
+
+          <p className="text-green mb-4">Cannabis</p>
           <div className="flex justify-between items-center">
             <h2 className="font-bold text-4xl leading-[1.15]">Strawberry Kush</h2>
-            <button onClick={() => setLiked(!liked)}>{liked ? <FaHeart size="1.5rem" color="#de3c3c" /> : <FaRegHeart size="1.5rem" className="opacity-50" />}</button>
+            <button onClick={() => setLiked(!liked)} className="p-2 rounded-lg bg-green-100 dark:bg-[rgb(49,74,65)]">
+              <FaHeart size="1.5rem" color={`${liked ? "#de3c3c" : "#FFF"}`} />
+            </button>
           </div>
           <p>earthy, sweet, floral</p>
           <div className="flex md:items-center justify-between md:flex-row flex-col-reverse mt-4">
@@ -96,4 +94,4 @@ const BestSeller = ({ t }) => {
   );
 };
 
-export default BestSeller;
+export default Header;

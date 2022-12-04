@@ -3,7 +3,7 @@ import { FaHeart } from "react-icons/fa";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import Image from "next/image";
-
+import Link from "next/link";
 const ProductCard = () => {
   const { t } = useTranslation("common");
   const [liked, setLiked] = useState(false);
@@ -26,8 +26,10 @@ const ProductCard = () => {
         </div>
       </div>
       <div>
-        <h3 className="text-green font-bold sm:text-xl text-lg">Strawberry Kush</h3>
-        <h4 className="text-green sm:text-base text-sm">earthy, sweet, floral</h4>
+        <Link href="/product" scroll={false}>
+          <h3 className="text-green font-bold sm:text-xl text-lg">Strawberry Kush</h3>
+        </Link>
+        <h4 className="text-green sm:text-base text-sm line-clamp-1">earthy, sweet, floral</h4>
         <div className="flex items-center justify-between mt-2">
           <h3 className="text-orange font-bold sm:text-2xl text-lg">฿540 G</h3>
           <button onClick={() => setLiked(!liked)} className="p-2 rounded-lg bg-green-100 dark:bg-[rgb(49,74,65)]">

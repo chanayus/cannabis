@@ -3,8 +3,8 @@ import Link from "next/link";
 import { useTranslation } from "react-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import Image from "next/image";
-import BestSeller from "../components/Home/BestSeller";
-import TopShelf from "../components/Home/TopShelf";
+import BestSeller from "../components/home/BestSeller";
+import TopShelf from "../components/home/TopShelf";
 import ProductCard from "../components/ProductCard";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
@@ -32,7 +32,7 @@ const Home = () => {
 
   return (
     <>
-      <main className="container">
+      <main className="container lg:mb-24 mt-[3rem]">
         <header className="w-full min-h-[340px] h-[67vh] bg-[#000] rounded-xl overflow-hidden relative ">
           <div className="absolute md:p-10 p-8 w-full text-white bottom-[5%] z-10 ">
             <p id="hero-brand-text" className="text-lg opacity-0">
