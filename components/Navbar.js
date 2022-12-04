@@ -10,14 +10,14 @@ import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
 import { AnimatePresence, motion } from "framer-motion";
 import useIsMounted from "../hooks/useIsMounted";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Navbar = () => {
   const { locale, pathname, replace } = useRouter();
   const [mobileMenuVisible, setMobileMenuVisible] = useState(false);
   const { theme, setTheme } = useTheme();
   const { t } = useTranslation("nav");
-  const [isMounted] = useIsMounted();
+  const isMounted = useIsMounted();
   const currentTheme = theme || "light";
 
   const changeTheme = () => {

@@ -4,7 +4,7 @@ import "react-circular-progressbar/dist/styles.css";
 import useIsMounted from "../hooks/useIsMounted";
 
 const RoundProgress = ({ value, unit }) => {
-  const [isMounted] = useIsMounted();
+  const isMounted = useIsMounted();
   const { theme } = useTheme();
   value = value > 100 ? 100 : value < 0 ? 0 : value;
 
