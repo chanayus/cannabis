@@ -2,14 +2,18 @@ import React, { useState } from "react";
 
 import { FiShoppingCart } from "react-icons/fi";
 import Link from "next/link";
-import dynamic from "next/dynamic";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import RoundProgress from "../RoundProgress";
+import Image from "next/image";
 
-const RoundProgress = dynamic(() => import("../RoundProgress"), {
-  ssr: false,
-});
+gsap.registerPlugin(ScrollTrigger);
 
 const BestSeller = ({ t }) => {
   const [selectedWeight, setSelectedWeight] = useState("3g");
+  const containerRef = useRef(null);
+  const productDetailRef = useRef(null);
 
   const activeStyle = "w-14 h-12 bg-green text-white";
   const inActiveStyle = "w-14 h-12 border border-gray-light";
@@ -20,8 +24,16 @@ const BestSeller = ({ t }) => {
     "30g": "฿1240/30 G",
   };
 
+  useEffect(() => {
+    const trigger = { trigger: containerRef.current, start: "10% 55%", end: "55% 55%" };
+
+    gsap.fromTo(".round-progress", { opacity: 0, x: 50 }, { opacity: 1, x: 0, duration: 0.65, stagger: 0.25, scrollTrigger: trigger });
+    gsap.fromTo("#best-seller-product-image", { opacity: 0, scale: 0.75 }, { opacity: 1, scale: 1, delay: 0.1, duration: 0.65, scrollTrigger: trigger });
+    gsap.fromTo(productDetailRef.current, { opacity: 0, y: 25 }, { opacity: 1, y: 0, delay: 0.1, duration: 0.65, scrollTrigger: trigger });
+  }, []);
+
   return (
-    <section className="relative lg:mt-20">
+    <section className="relative lg:mt-24" ref={containerRef}>
       <div className="container-no-padding grid items-center lg:grid-cols-2 relative z-10 ">
         <div className="flex items-center md:flex-row flex-col-reverse p-8">
           <div className="grid gap-4 md:grid-cols-1 grid-cols-3">
@@ -30,25 +42,25 @@ const BestSeller = ({ t }) => {
             <RoundProgress value={50} unit="Sativa" />
           </div>
           <div className="mx-auto w-[13rem] h-[20rem] mb-2">
-            <img src="/images/products/1.png" alt="product-image" className=" w-full h-full object-contain" />
+            <Image id="best-seller-product-image" src="/images/products/1.png" alt="product-image" width={208} height={320} className="w-full h-full object-contain" />
           </div>
         </div>
 
-        <div className="p-8 lg:bg-transparent bg-white dark:bg-black ">
+        <div ref={productDetailRef} className="p-8 lg:bg-transparent bg-white dark:bg-black ">
           <div className="flex justify-between items-center mb-2">
             <img src="/images/aaa.svg" alt="aaa-badge" width={120} className="relative lg:left-[-8%] left-0" />
             <Link href="/" className="text-orange">
               {t("view all")}
             </Link>
           </div>
-          <p className="text-green mb-4">best seller</p>
+          <p className="text-green mb-4">{t("best seller")}</p>
           <div>
             <h2 className="font-bold text-4xl leading-[1.15]">Strawberry Kush</h2>
             <button></button>
           </div>
           <p>earthy, sweet, floral</p>
-          <div className="flex md:items-center justify-between md:flex-row flex-col-reverse gap-y-4 mt-4">
-            <div className="flex space-x-4">
+          <div className="flex md:items-center justify-between md:flex-row flex-col-reverse mt-4">
+            <div className="flex space-x-4 md:mt-0 mt-4">
               <button onClick={() => setSelectedWeight("3g")} className={selectedWeight === "3g" ? activeStyle : inActiveStyle}>
                 3G
               </button>
@@ -66,7 +78,7 @@ const BestSeller = ({ t }) => {
             productive and creative level.{" "}
             <span>
               <Link href="/" className="underline">
-                Read more
+                {t("read more")}
               </Link>
             </span>
           </p>

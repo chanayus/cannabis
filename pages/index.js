@@ -6,46 +6,70 @@ import Image from "next/image";
 import BestSeller from "../components/Home/BestSeller";
 import TopShelf from "../components/Home/TopShelf";
 import ProductCard from "../components/ProductCard";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
   const { t } = useTranslation(["common", "home"]);
+  const whyOrderRef = useRef(null);
+
+  useEffect(() => {
+    // Animate for Hero Section
+    gsap.fromTo("#hero-image-cover", { opacity: 0, scale: 1.25 }, { opacity: 1, scale: 1, delay: 0.1, duration: 0.75 });
+    gsap.fromTo("#hero-brand-text", { opacity: 0, y: 20 }, { opacity: 1, y: 0, delay: 0.3, duration: 0.45 });
+    gsap.fromTo("#hero-quote", { opacity: 0, y: 20 }, { opacity: 1, y: 0, delay: 0.5, duration: 0.45 });
+    gsap.fromTo("#hero-button", { opacity: 0, y: 20 }, { opacity: 1, y: 0, delay: 0.7, duration: 0.45 });
+
+    // Animate for why-order Section
+    const whyOrderTrigger = { trigger: whyOrderRef.current, start: "top 55%", end: "55% 55%" };
+
+    gsap.fromTo(whyOrderRef.current, { opacity: 0 }, { opacity: 1, duration: 0.35, scrollTrigger: whyOrderTrigger });
+    gsap.fromTo("[data-why-card]", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.35, stagger: 0.15, scrollTrigger: whyOrderTrigger });
+  }, []);
 
   return (
     <>
       <main className="container">
-        <header className="w-full min-h-[340px] h-[60vh] rounded-xl overflow-hidden relative ">
-          <div className="absolute md:p-10 p-8 w-full text-white bottom-[5%]">
-            <p className="text-lg">Cannabis</p>
-            <h2 className="md:my-3 my-2 lg:text-5xl text-4xl font-bold uppercase max-w-[15ch]">{t("hero.quote", { ns: "home" })}</h2>
-            <div className="flex mt-8 font-semibold whitespace-nowrap">
+        <header className="w-full min-h-[340px] h-[60vh] bg-[#000] rounded-xl overflow-hidden relative ">
+          <div className="absolute md:p-10 p-8 w-full text-white bottom-[5%] z-10 ">
+            <p id="hero-brand-text" className="text-lg opacity-0">
+              Cannabis
+            </p>
+            <h2 id="hero-quote" className="opacity-0 md:my-3 my-2 lg:text-5xl text-4xl font-bold uppercase max-w-[15ch]">
+              {t("hero.quote", { ns: "home" })}
+            </h2>
+            <div id="hero-button" className="flex mt-8 font-semibold whitespace-nowrap opacity-0">
               <button className="px-8 py-3 bg-orange mr-6">{t("hero.login", { ns: "home" })}</button>
               <button className="px-8 py-3 border mr-8 ">{t("hero.shop", { ns: "home" })}</button>
             </div>
           </div>
-          <img src="/images/home/hero.jpg" alt="hero-image-cover" className="w-full h-full object-cover object-left" />
+          <Image id="hero-image-cover" src="/images/home/hero.jpg" alt="hero-image-cover" priority={true} fill className="opacity-0 w-full h-full object-cover object-[30%_center]" />
         </header>
 
-        <section className="text-center mt-20">
-          <Image src="/images/logo-mini.svg" alt="logo" width={50} height={50} className="mx-auto mb-6" />
+        <section ref={whyOrderRef} className="text-center my-[8vh] opacity-0">
+          <Image id="why-order-logo" src="/images/logo-mini.svg" alt="logo" width={50} height={50} className="mx-auto mb-6" />
           <h2 className="font-bold md:text-5xl text-4xl mb-3">{t("why-order-us.title", { ns: "home" })}</h2>
           <h4 className="md:text-2xl text-xl">{t("why-order-us.desc", { ns: "home" })}</h4>
 
           <div className="grid lg:grid-cols-3 grid-cols-1 items-center mt-6 gap-6 ">
-            <div className="bg-[#EDEDED] dark:bg-black rounded-lg p-6 w-full h-full max-w-[480px] mx-auto">
+            <div data-why-card className="bg-[#EDEDED] dark:bg-black rounded-lg p-6 w-full h-full max-w-[480px] mx-auto">
               <div className="bg-green p-2 w-16 h-16 rounded-xl mx-auto">
                 <Image src="/icons/clean.svg" alt="icon" width={50} height={50} className="mx-auto  w-full h-full" />
               </div>
               <h3 className="font-bold text-xl mt-3 text-green mb-1">{t("why-order-us.clean.title", { ns: "home" })}</h3>
               <p>{t("why-order-us.clean.desc", { ns: "home" })}</p>
             </div>
-            <div className="bg-[#EDEDED] dark:bg-black rounded-lg p-6 w-full h-full max-w-[480px] mx-auto">
+            <div data-why-card className="bg-[#EDEDED] dark:bg-black rounded-lg p-6 w-full h-full max-w-[480px] mx-auto">
               <div className="bg-green p-2 w-16 h-16 rounded-xl mx-auto">
                 <Image src="/icons/delivery.svg" alt="icon" width={50} height={50} className="mx-auto  w-full h-full" />
               </div>
               <h3 className="font-bold text-xl mt-3 text-green mb-1">{t("why-order-us.delivery.title", { ns: "home" })}</h3>
               <p>{t("why-order-us.delivery.desc", { ns: "home" })}</p>
             </div>
-            <div className="bg-[#EDEDED] dark:bg-black rounded-lg p-6 w-full h-full max-w-[480px] mx-auto">
+            <div data-why-card className="bg-[#EDEDED] dark:bg-black rounded-lg p-6 w-full h-full max-w-[480px] mx-auto">
               <div className="bg-green p-2 w-16 h-16 rounded-xl mx-auto">
                 <Image src="/icons/quality.svg" alt="icon" width={50} height={50} className="mx-auto w-full h-full" />
               </div>
@@ -62,10 +86,10 @@ const Home = () => {
       <section className="container my-20">
         <div className="flex justify-between items-center">
           <div>
-            <h2 className="font-bold text-5xl text-green mb-1">Shop</h2>
-            <h2 className="text-stroke-green font-bold text-5xl text-transparent">Cannabis</h2>
+            <h2 className="font-bold sm:text-5xl text-4xl text-green mb-1">Shop</h2>
+            <h2 className="text-stroke-green font-bold sm:text-5xl text-4xl text-transparent">Cannabis</h2>
           </div>
-          <Link href="/" className="font-bold text-green border px-8 py-2 rounded-lg text-xl">
+          <Link href="/" className="font-bold text-green border md:px-8 px-6 py-2 rounded-lg md:text-xl ">
             {t("view all")}
           </Link>
         </div>
@@ -81,48 +105,48 @@ const Home = () => {
           <h2 className="text-[clamp(3.5rem,10vw,10rem)] text-center font-bold text-stroke-white text-[#1C8151]">CANNABIS</h2>
           <main className="lg:p-20 md:p-10 p-4 bg-body-light dark:bg-body-dark rounded-2xl ">
             <div className="flex lg:flex-row flex-col-reverse">
-              <div className="grid sm:grid-cols-2 justify-items-center md:gap-0 gap-2 w-full">
+              <div className="grid sm:grid-cols-2 justify-items-center gap-2 w-full">
                 <ProductCard />
                 <ProductCard />
               </div>
               <div className="flex w-full items-center lg:justify-center relative lg:top-[-50px] my-8">
-                <div className="w-14 h-14 bg-green flex-shrink-0 rounded-lg grid place-items-center mr-4 mb-8">
-                  <img src="/icons/create.svg" alt="product-style-icon" />
+                <div className="w-14 h-14 bg-green flex-shrink-0 rounded-lg grid place-items-center mr-4 sm:mb-8">
+                  <Image src="/icons/create.svg" alt="product-style-icon" width={30} height={30} />
                 </div>
                 <div>
                   <h3 className="sm:text-4xl text-3xl text-green font-bold mb-2">{t("create.title", { ns: "home" })}</h3>
-                  <p className="text-xl ">Cannabis introduce you</p>
+                  <p className="sm:text-xl">Cannabis introduce you</p>
                 </div>
               </div>
             </div>
 
             <div className="flex lg:flex-row flex-col-reverse">
-              <div className="grid sm:grid-cols-2 justify-items-center md:gap-0 gap-2 w-full">
+              <div className="grid sm:grid-cols-2 justify-items-center gap-2 w-full">
                 <ProductCard />
                 <ProductCard />
               </div>
               <div className="flex w-full items-center lg:justify-center relative lg:top-[-50px] my-8">
-                <div className="w-14 h-14 bg-green flex-shrink-0 rounded-lg grid place-items-center mr-4 mb-8">
-                  <img src="/icons/relax.svg" alt="product-style-icon" />
+                <div className="w-14 h-14 bg-green flex-shrink-0 rounded-lg grid place-items-center mr-4 sm:mb-8">
+                  <Image src="/icons/relax.svg" alt="product-style-icon" width={30} height={30} />
                 </div>
                 <div>
                   <h3 className="sm:text-4xl text-3xl text-green font-bold mb-2">{t("relax.title", { ns: "home" })}</h3>
-                  <p className="text-xl ">Cannabis introduce you</p>
+                  <p className="sm:text-xl">Cannabis introduce you</p>
                 </div>
               </div>
             </div>
 
             <div className="flex lg:flex-row flex-col">
               <div className="flex w-full items-center relative lg:top-[-50px] my-8">
-                <div className="w-14 h-14 bg-green flex-shrink-0 rounded-lg grid place-items-center mr-4 mb-8">
-                  <img src="/icons/party.svg" alt="product-style-icon" />
+                <div className="w-14 h-14 bg-green flex-shrink-0 rounded-lg grid place-items-center mr-4 sm:mb-8">
+                  <Image src="/icons/party.svg" alt="product-style-icon" width={30} height={30} />
                 </div>
                 <div>
                   <h3 className="sm:text-4xl text-3xl text-green font-bold mb-2">{t("party.title", { ns: "home" })}</h3>
-                  <p className="text-xl ">Cannabis introduce you</p>
+                  <p className="sm:text-xl">Cannabis introduce you</p>
                 </div>
               </div>
-              <div className="grid sm:grid-cols-2 justify-items-center md:gap-0 gap-2 w-full">
+              <div className="grid sm:grid-cols-2 justify-items-center gap-2 w-full">
                 <ProductCard />
                 <ProductCard />
               </div>
@@ -130,15 +154,15 @@ const Home = () => {
 
             <div className="flex lg:flex-row flex-col">
               <div className="flex w-full items-center relative lg:top-[-50px] my-8">
-                <div className="w-14 h-14 flex-shrink-0 bg-green rounded-lg grid place-items-center mr-4 mb-8">
-                  <img src="/icons/sleep.svg" alt="product-style-icon" />
+                <div className="w-14 h-14 flex-shrink-0 bg-green rounded-lg grid place-items-center mr-4 sm:mb-8">
+                  <Image src="/icons/sleep.svg" alt="product-style-icon" width={30} height={30} />
                 </div>
                 <div>
                   <h3 className="sm:text-4xl text-3xl text-green font-bold mb-2">{t("sleep.title", { ns: "home" })}</h3>
-                  <p className="text-xl ">Cannabis introduce you</p>
+                  <p className="sm:text-xl">Cannabis introduce you</p>
                 </div>
               </div>
-              <div className="grid sm:grid-cols-2 justify-items-center md:gap-0 gap-2 w-full">
+              <div className="grid sm:grid-cols-2 justify-items-center gap-2 w-full">
                 <ProductCard />
                 <ProductCard />
               </div>
