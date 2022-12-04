@@ -33,7 +33,7 @@ const Home = () => {
   return (
     <>
       <main className="container">
-        <header className="w-full min-h-[340px] h-[60vh] bg-[#000] rounded-xl overflow-hidden relative ">
+        <header className="w-full min-h-[340px] h-[67vh] bg-[#000] rounded-xl overflow-hidden relative ">
           <div className="absolute md:p-10 p-8 w-full text-white bottom-[5%] z-10 ">
             <p id="hero-brand-text" className="text-lg opacity-0">
               Cannabis

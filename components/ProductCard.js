@@ -2,6 +2,7 @@ import { FiShoppingCart } from "react-icons/fi";
 import { FaHeart } from "react-icons/fa";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import Image from "next/image";
 
 const ProductCard = () => {
   const { t } = useTranslation("common");
@@ -21,7 +22,7 @@ const ProductCard = () => {
           </div>
         </div>
         <div className="w-[8.45rem] h-[12rem] md:absolute lg:top-[-35%] top-[-25%] right-[-2.5%] md:mx-none mx-auto">
-          <img src="/images/products/1.png" alt="product-image" className="w-full h-full object-contain" />
+          <Image src="/images/products/1.png" width={135} height={192} alt="product-image" className="w-full h-full object-contain" />
         </div>
       </div>
       <div>
