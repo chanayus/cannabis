@@ -4,13 +4,13 @@ import Image from "next/image";
 import fullLogo from "../public/images/logo-full.svg";
 import miniLogo from "../public/images/logo-mini.svg";
 import { HiOutlineGlobeAlt, HiSun, HiMoon } from "react-icons/hi";
-import { HiBars3 } from "react-icons/hi2";
+import { HiBars3, HiXMark } from "react-icons/hi2";
 import { FiShoppingCart } from "react-icons/fi";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
 import { AnimatePresence, motion } from "framer-motion";
 import useIsMounted from "../hooks/useIsMounted";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const Navbar = () => {
   const { locale, pathname, replace } = useRouter();
@@ -85,9 +85,7 @@ const Navbar = () => {
             <Link href="/" className="border px-4 py-2 rounded-lg font-bold mx-4 ">
               {t("login")}
             </Link>
-            <button onClick={() => setMobileMenuVisible(!mobileMenuVisible)}>
-              <HiBars3 size="2rem" />
-            </button>
+            <button onClick={() => setMobileMenuVisible(!mobileMenuVisible)}>{mobileMenuVisible ? <HiXMark size="2rem" /> : <HiBars3 size="2rem" />}</button>
           </div>
         </div>
       </nav>
