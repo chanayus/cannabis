@@ -172,7 +172,7 @@ const Home = () => {
               Coffeeshop Relax pays a lot of attention to selecting the best products. All our weed and hash products are thoroughly tested, so that only the cleanest and strongest varieties end up on
               our map. View all our weed and hash products and their effect below!
             </p>
-            <div className="flex justify-center">
+            <div className="flex justify-center mb-8">
               <Link href="/" className="font-bold text-green border px-8 py-2 rounded-lg text-xl">
                 {t("view all")}
               </Link>
