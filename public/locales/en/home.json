@@ -12,19 +12,19 @@
     "quality": { "title": "Choosing the best", "desc": "Give importance to selecting \n the best products" }
   },
   "create": {
-    "title": "create",
+    "title": "Create",
     "desc": "Cannabis introduce you"
   },
   "relax": {
-    "title": "relax",
+    "title": "Relax",
     "desc": "Cannabis introduce you"
   },
   "party": {
-    "title": "party",
+    "title": "Party",
     "desc": "Cannabis introduce you"
   },
   "sleep": {
-    "title": "sleep",
+    "title": "Sleep",
     "desc": "Cannabis introduce you"
   }
 }
