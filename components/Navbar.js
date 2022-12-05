@@ -48,14 +48,14 @@ const Navbar = () => {
           <div className="md:flex hidden items-center text-green space-x-4">
             <div className="flex items-center text-black dark:text-white">
               <HiOutlineGlobeAlt size="1.5rem" />
-              <button onClick={() => changeLanguage("en")} className={`border-r rounded-none px-2 ${locale !== "en" ? "opacity-50 font-medium" : "font-bold"}`}>
+              <button aria-label="English" onClick={() => changeLanguage("en")} className={`border-r rounded-none px-2 ${locale !== "en" ? "opacity-50 font-medium" : "font-bold"}`}>
                 English
               </button>
-              <button onClick={() => changeLanguage("th")} className={`px-2 ${locale !== "th" ? "opacity-50 font-medium" : "font-bold"}`}>
+              <button aria-label="Thai" onClick={() => changeLanguage("th")} className={`px-2 ${locale !== "th" ? "opacity-50 font-medium" : "font-bold"}`}>
                 Thai
               </button>
             </div>
-            <button onClick={() => changeTheme()}>
+            <button aria-label="change-theme-button" onClick={() => changeTheme()}>
               <AnimatePresence mode="wait" initial={false}>
                 {theme === "dark" && isMounted ? (
                   <motion.div key="dark-theme-button" transition={{ duration: 0.2 }} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }}>
@@ -71,21 +71,23 @@ const Navbar = () => {
             <NextLink href="/" className="border px-4 py-2 rounded-lg font-bold">
               {t("login")}
             </NextLink>
-            <button className="font-medium relative bg-[#F6F6F6] dark:bg-black dark:text-white py-2 px-2 text-black">
+            <button aria-label="cart" className="font-medium relative bg-[#F6F6F6] dark:bg-black dark:text-white py-2 px-2 text-black">
               <FiShoppingCart size="1.5rem" className="mr-2" />
               0.00$
               <div className="absolute w-3 h-3 rounded-full  top-[-5px] right-[-5px] bg-orange"></div>
             </button>
           </div>
           <div className="md:hidden flex items-center ">
-            <button className="font-medium relative bg-[#F6F6F6] dark:bg-black dark:text-white py-2 px-2 text-black">
+            <button aria-label="cart-mobile" className="font-medium relative bg-[#F6F6F6] dark:bg-black dark:text-white py-2 px-2 text-black">
               <FiShoppingCart size="1.5rem" />
               <div className="absolute w-3 h-3 rounded-full  top-[-5px] right-[-5px] bg-orange"></div>
             </button>
             <NextLink href="/" className="border px-4 py-2 rounded-lg font-bold mx-4 ">
               {t("login")}
             </NextLink>
-            <button onClick={() => setMobileMenuVisible(!mobileMenuVisible)}>{mobileMenuVisible ? <HiXMark size="2rem" /> : <HiBars3 size="2rem" />}</button>
+            <button aria-label="mobile-menu-toggle" onClick={() => setMobileMenuVisible(!mobileMenuVisible)}>
+              {mobileMenuVisible ? <HiXMark size="2rem" /> : <HiBars3 size="2rem" />}
+            </button>
           </div>
         </div>
       </nav>
@@ -103,16 +105,16 @@ const Navbar = () => {
 
             <div className="flex items-center text-black dark:text-white mt-6">
               <HiOutlineGlobeAlt size="1.5rem" />
-              <button onClick={() => changeLanguage("en")} className={`border-r rounded-none px-2 ${locale !== "en" ? "opacity-50 font-medium" : "font-bold"}`}>
+              <button aria-label="English" onClick={() => changeLanguage("en")} className={`border-r rounded-none px-2 ${locale !== "en" ? "opacity-50 font-medium" : "font-bold"}`}>
                 English
               </button>
-              <button onClick={() => changeLanguage("th")} className={`px-2 ${locale !== "th" ? "opacity-50 font-medium" : "font-bold"}`}>
+              <button aria-label="Thai" onClick={() => changeLanguage("th")} className={`px-2 ${locale !== "th" ? "opacity-50 font-medium" : "font-bold"}`}>
                 Thai
               </button>
             </div>
             <div className="mt-6 flex items-center">
               Theme :
-              <button onClick={() => changeTheme()} className="ml-4 ">
+              <button aria-label="change-theme-button" onClick={() => changeTheme()} className="ml-4 ">
                 <AnimatePresence mode="wait" initial={false}>
                   {theme === "dark" && isMounted ? (
                     <motion.div

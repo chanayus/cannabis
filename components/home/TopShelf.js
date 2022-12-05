@@ -63,7 +63,7 @@ const TopShelf = ({ t }) => {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quam ducimus doloribus nisi incidunt sed quas totam omnis eum, eos exercitationem temporibus animi illum nulla illo
             enim, laboriosam ipsum deserunt!
           </p>
-          <button className="px-8 py-3 bg-orange my-6 text-white">{t("shop now")}</button>
+          <NextLink href="/" className="px-8 py-3 bg-orange my-6 text-white">{t("shop now")}</NextLink>
           <div className="w-[2px] h-[75%] bg-white ml-2 absolute xl:block hidden top-[46%] translate-y-[-50%] left-[0] opacity-50"></div>
           <div className="flex items-center text-white">
             <AnimatePresence>

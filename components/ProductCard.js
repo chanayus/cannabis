@@ -33,12 +33,12 @@ const ProductCard = () => {
         <h4 className="text-green sm:text-base text-sm line-clamp-1">earthy, sweet, floral</h4>
         <div className="flex items-center justify-between mt-2">
           <h3 className="text-orange font-bold sm:text-2xl text-lg">฿540 G</h3>
-          <button onClick={() => setLiked(!liked)} className="p-2 rounded-lg bg-green-100 dark:bg-[rgb(49,74,65)]">
+          <button aria-label="like-button" onClick={() => setLiked(!liked)} className="p-2 rounded-lg bg-green-100 dark:bg-[rgb(49,74,65)]">
             <FaHeart size="1.5rem" color={`${liked ? "#de3c3c" : "#FFF"}`} />
           </button>
         </div>
       </div>
-      <button className="border-green border text-green px-6 py-3 w-full mt-4 whitespace-nowrap">
+      <button aria-label="add-to-cart" className="border-green border text-green px-6 py-3 w-full mt-4 whitespace-nowrap">
         <FiShoppingCart size="1.5rem" className="mr-2 sm:block hidden" />
         {t("add to cart")}
       </button>
