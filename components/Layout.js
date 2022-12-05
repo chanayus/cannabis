@@ -20,13 +20,13 @@ const Layout = ({ children }) => {
     } else {
       setTimeout(() => {
         window.scroll(0, 0);
-      }, 300);
+      }, 100);
     }
     return () => {
       clearTimeout(
         setTimeout(() => {
           window.scroll(0, 0);
-        }, 300)
+        }, 100)
       );
     };
   }, [router]);
