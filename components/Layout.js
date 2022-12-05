@@ -13,6 +13,7 @@ const Layout = ({ children }) => {
   const router = useRouter();
 
   useEffect(() => {
+    window.history.scrollRestoration = 'manual'
     if (firstRender) {
       window.scroll(0, 0);
       setFirstRender(false);
