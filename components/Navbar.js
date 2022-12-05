@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { useTranslation } from "react-i18next";
 import Image from "next/image";
 import fullLogo from "../public/images/logo-full.svg";
@@ -11,6 +10,7 @@ import { useRouter } from "next/router";
 import { AnimatePresence, motion } from "framer-motion";
 import useIsMounted from "../hooks/useIsMounted";
 import { useState } from "react";
+import NextLink from "./NextLink";
 
 const Navbar = () => {
   const { locale, pathname, replace } = useRouter();
@@ -33,16 +33,16 @@ const Navbar = () => {
       <nav className="py-4 bg-white dark:bg-[#252525] fixed top-0 w-full z-30">
         <div className="container flex justify-between items-center relative z-30 ">
           <div className="flex items-center ">
-            <Link href="/">
+            <NextLink href="/">
               <Image src={fullLogo} alt="logo" width={175} className="lg:block hidden" />
               <Image src={miniLogo} alt="logo" width={35} className="lg:hidden block" />
-            </Link>
+            </NextLink>
             <div className="text-green space-x-6 ml-8 md:block hidden">
-              <Link href="/">{t("home")}</Link>
-              <Link href="/">{t("refferal")}</Link>
-              <Link href="/">{t("product")}</Link>
-              <Link href="/">{t("blog")}</Link>
-              <Link href="/">{t("doc")}</Link>
+              <NextLink href="/">{t("home")}</NextLink>
+              <NextLink href="/">{t("refferal")}</NextLink>
+              <NextLink href="/">{t("product")}</NextLink>
+              <NextLink href="/">{t("blog")}</NextLink>
+              <NextLink href="/">{t("doc")}</NextLink>
             </div>
           </div>
           <div className="md:flex hidden items-center text-green space-x-4">
@@ -68,9 +68,9 @@ const Navbar = () => {
                 )}
               </AnimatePresence>
             </button>
-            <Link href="/" className="border px-4 py-2 rounded-lg font-bold">
+            <NextLink href="/" className="border px-4 py-2 rounded-lg font-bold">
               {t("login")}
-            </Link>
+            </NextLink>
             <button className="font-medium relative bg-[#F6F6F6] dark:bg-black dark:text-white py-2 px-2 text-black">
               <FiShoppingCart size="1.5rem" className="mr-2" />
               0.00$
@@ -82,9 +82,9 @@ const Navbar = () => {
               <FiShoppingCart size="1.5rem" />
               <div className="absolute w-3 h-3 rounded-full  top-[-5px] right-[-5px] bg-orange"></div>
             </button>
-            <Link href="/" className="border px-4 py-2 rounded-lg font-bold mx-4 ">
+            <NextLink href="/" className="border px-4 py-2 rounded-lg font-bold mx-4 ">
               {t("login")}
-            </Link>
+            </NextLink>
             <button onClick={() => setMobileMenuVisible(!mobileMenuVisible)}>{mobileMenuVisible ? <HiXMark size="2rem" /> : <HiBars3 size="2rem" />}</button>
           </div>
         </div>
@@ -94,11 +94,11 @@ const Navbar = () => {
         <div className="fixed w-full px-2 py-8 bg-white dark:bg-[#252525] z-20 top-[0%] pt-[80px] md:hidden block">
           <div className="container">
             <div className="flex flex-col space-y-4 text-green">
-              <Link href="/">{t("home")}</Link>
-              <Link href="/">{t("refferal")}</Link>
-              <Link href="/">{t("product")}</Link>
-              <Link href="/">{t("blog")}</Link>
-              <Link href="/">{t("doc")}</Link>
+              <NextLink href="/">{t("home")}</NextLink>
+              <NextLink href="/">{t("refferal")}</NextLink>
+              <NextLink href="/">{t("product")}</NextLink>
+              <NextLink href="/">{t("blog")}</NextLink>
+              <NextLink href="/">{t("doc")}</NextLink>
             </div>
 
             <div className="flex items-center text-black dark:text-white mt-6">

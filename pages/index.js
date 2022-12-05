@@ -1,4 +1,4 @@
-import Link from "next/link";
+import NextLink from "../components/NextLink";
 
 import { useTranslation } from "react-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
@@ -42,7 +42,7 @@ const Home = () => {
               {t("hero.quote", { ns: "home" })}
             </h2>
             <div id="hero-button" className="flex mt-8 font-semibold whitespace-nowrap opacity-0">
-              <button className="px-8 py-3 bg-orange mr-6">{t("hero.login", { ns: "home" })}</button>
+              <NextLink href="/product" className="px-8 py-3 bg-orange mr-6 rounded-lg">{t("hero.login", { ns: "home" })}</NextLink>
               <button className="px-8 py-3 border mr-8 ">{t("hero.shop", { ns: "home" })}</button>
             </div>
           </div>
@@ -89,9 +89,9 @@ const Home = () => {
             <h2 className="font-bold sm:text-5xl text-4xl text-green mb-1">Shop</h2>
             <h2 className="text-stroke-green font-bold sm:text-5xl text-4xl text-transparent">Cannabis</h2>
           </div>
-          <Link href="/" className="font-bold text-green border md:px-8 px-6 py-2 rounded-lg md:text-xl ">
+          <NextLink href="/" className="font-bold text-green border md:px-8 px-6 py-2 rounded-lg md:text-xl ">
             {t("view all")}
-          </Link>
+          </NextLink>
         </div>
         <div className="grid justify-items-center sm:gap-4 gap-2 lg:grid-cols-4 md:grid-cols-3 grid-cols-2 mt-20">
           {[...new Array(16)].map((item, index) => (
@@ -173,9 +173,9 @@ const Home = () => {
               our map. View all our weed and hash products and their effect below!
             </p>
             <div className="flex justify-center mb-8">
-              <Link href="/" className="font-bold text-green border px-8 py-2 rounded-lg text-xl">
+              <NextLink href="/" className="font-bold text-green border px-8 py-2 rounded-lg text-xl">
                 {t("view all")}
-              </Link>
+              </NextLink>
             </div>
           </main>
         </div>

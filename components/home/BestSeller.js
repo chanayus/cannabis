@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { FiShoppingCart } from "react-icons/fi";
-import Link from "next/link";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import RoundProgress from "../RoundProgress";
 import Image from "next/image";
+import NextLink from "../NextLink";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -50,9 +50,9 @@ const BestSeller = ({ t }) => {
         <div ref={productDetailRef} className="p-8 lg:bg-transparent lg:dark:bg-transparent bg-white dark:bg-black ">
           <div className="flex justify-between items-center mb-2">
             <Image src="/images/aaa.svg" alt="aaa-badge" width={120} height={40} className="relative lg:left-[-8%] left-0" />
-            <Link href="/" className="text-orange">
+            <NextLink href="/" className="text-orange">
               {t("view all")}
-            </Link>
+            </NextLink>
           </div>
           <p className="text-green mb-4">{t("best seller")}</p>
           <div className="flex justify-between items-center">
@@ -79,9 +79,9 @@ const BestSeller = ({ t }) => {
             productive and creative level level.
           </p>
           <span>
-            <Link href="/" className="underline">
+            <NextLink href="/" className="underline">
               {t("read more")}
-            </Link>
+            </NextLink>
           </span>
           <button className="bg-green px-6 py-3 text-white mt-6">
             <FiShoppingCart size="1.5rem" className="mr-2" />

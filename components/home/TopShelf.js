@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef } from "react";
-import Link from "next/link";
 import { IoChevronDownSharp, IoChevronUpSharp } from "react-icons/io5";
 import { motion, AnimatePresence } from "framer-motion";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import gsap from "gsap";
+import NextLink from "../NextLink";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -79,9 +79,9 @@ const TopShelf = ({ t }) => {
 
         <div className="p-8 relative w-full h-full">
           <div className="w-full px-6 absolute flex justify-end left-0">
-            <Link href="/" className="text-orange  ">
+            <NextLink href="/" className="text-orange  ">
               {t("view all")}
-            </Link>
+            </NextLink>
           </div>
 
           <div id="top-slide-control" className="bg-white dark:bg-black p-4 rounded-lg flex absolute md:w-[70%] w-[90%] left-1/2 translate-x-[-50%] md:bottom-8 bottom-0 z-10">

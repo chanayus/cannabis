@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-import { FaHeart, FaRegHeart } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa";
 import { FiShoppingCart } from "react-icons/fi";
-import Link from "next/link";
+
 import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
+// import gsap from "gsap";
+// import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import RoundProgress from "../RoundProgress";
 import Image from "next/image";
+import NextLink from "../NextLink";
 
-gsap.registerPlugin(ScrollTrigger);
+// gsap.registerPlugin(ScrollTrigger);
 
 const Header = ({ t }) => {
   const [selectedWeight, setSelectedWeight] = useState("3g");
@@ -25,13 +26,13 @@ const Header = ({ t }) => {
     "30g": "฿1240/30 G",
   };
 
-  useEffect(() => {
-    const trigger = { trigger: containerRef.current, start: "10% 55%", end: "55% 55%" };
+  // useEffect(() => {
+  //   const trigger = { trigger: containerRef.current, start: "10% 55%", end: "55% 55%" };
 
-    gsap.fromTo(".round-progress", { opacity: 0, x: 50 }, { opacity: 1, x: 0, duration: 0.65, stagger: 0.25, scrollTrigger: trigger });
-    gsap.fromTo("#best-seller-product-image", { opacity: 0, scale: 0.75 }, { opacity: 1, scale: 1, delay: 0.1, duration: 0.65, scrollTrigger: trigger });
-    gsap.fromTo(productDetailRef.current, { opacity: 0, y: 25 }, { opacity: 1, y: 0, delay: 0.1, duration: 0.65, scrollTrigger: trigger });
-  }, []);
+  //   gsap.fromTo(".round-progress", { opacity: 0, x: 50 }, { opacity: 1, x: 0, duration: 0.65, stagger: 0.25, scrollTrigger: trigger });
+  //   gsap.fromTo("#best-seller-product-image", { opacity: 0, scale: 0.75 }, { opacity: 1, scale: 1, delay: 0.1, duration: 0.65, scrollTrigger: trigger });
+  //   gsap.fromTo(productDetailRef.current, { opacity: 0, y: 25 }, { opacity: 1, y: 0, delay: 0.1, duration: 0.65, scrollTrigger: trigger });
+  // }, []);
 
   return (
     <section className="relative " ref={containerRef}>
@@ -43,7 +44,7 @@ const Header = ({ t }) => {
             <RoundProgress value={50} unit="Sativa" />
           </div>
           <div className="mx-auto w-[13rem] h-[20rem] mb-2">
-            <Image id="best-seller-product-image" src="/images/products/1.png" alt="product-image" width={208} height={320} className="w-full h-full object-contain" />
+            <Image id="best-seller-product-image" priority={true} src="/images/products/1.png" alt="product-image" width={208} height={320} className="w-full h-full object-contain" />
           </div>
         </div>
 
@@ -77,9 +78,9 @@ const Header = ({ t }) => {
             productive and creative level level.
           </p>
           <span>
-            <Link href="/" className="underline">
+            <NextLink href="/" className="underline">
               {t("read more")}
-            </Link>
+            </NextLink>
           </span>
           <button className="bg-green px-6 py-3 text-white mt-6">
             <FiShoppingCart size="1.5rem" className="mr-2" />

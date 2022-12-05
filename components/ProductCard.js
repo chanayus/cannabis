@@ -3,7 +3,8 @@ import { FaHeart } from "react-icons/fa";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import Image from "next/image";
-import Link from "next/link";
+import NextLink from "./NextLink";
+
 const ProductCard = () => {
   const { t } = useTranslation("common");
   const [liked, setLiked] = useState(false);
@@ -26,9 +27,9 @@ const ProductCard = () => {
         </div>
       </div>
       <div>
-        <Link href="/product" scroll={false}>
+        <NextLink href="/product">
           <h3 className="text-green font-bold sm:text-xl text-lg">Strawberry Kush</h3>
-        </Link>
+        </NextLink>
         <h4 className="text-green sm:text-base text-sm line-clamp-1">earthy, sweet, floral</h4>
         <div className="flex items-center justify-between mt-2">
           <h3 className="text-orange font-bold sm:text-2xl text-lg">฿540 G</h3>
