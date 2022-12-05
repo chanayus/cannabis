@@ -2,14 +2,11 @@ import React, { useState } from "react";
 import { FaHeart } from "react-icons/fa";
 import { FiShoppingCart } from "react-icons/fi";
 
-import { useEffect, useRef } from "react";
-// import gsap from "gsap";
-// import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import { useRef } from "react";
+
 import RoundProgress from "../RoundProgress";
 import Image from "next/image";
 import NextLink from "../NextLink";
-
-// gsap.registerPlugin(ScrollTrigger);
 
 const Header = ({ t }) => {
   const [selectedWeight, setSelectedWeight] = useState("3g");
@@ -25,14 +22,6 @@ const Header = ({ t }) => {
     "10g": "฿760/10 G",
     "30g": "฿1240/30 G",
   };
-
-  // useEffect(() => {
-  //   const trigger = { trigger: containerRef.current, start: "10% 55%", end: "55% 55%" };
-
-  //   gsap.fromTo(".round-progress", { opacity: 0, x: 50 }, { opacity: 1, x: 0, duration: 0.65, stagger: 0.25, scrollTrigger: trigger });
-  //   gsap.fromTo("#best-seller-product-image", { opacity: 0, scale: 0.75 }, { opacity: 1, scale: 1, delay: 0.1, duration: 0.65, scrollTrigger: trigger });
-  //   gsap.fromTo(productDetailRef.current, { opacity: 0, y: 25 }, { opacity: 1, y: 0, delay: 0.1, duration: 0.65, scrollTrigger: trigger });
-  // }, []);
 
   return (
     <section className="relative " ref={containerRef}>

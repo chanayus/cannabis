@@ -13,7 +13,7 @@ import { useState } from "react";
 import NextLink from "./NextLink";
 
 const Navbar = () => {
-  const { locale, pathname, replace } = useRouter();
+  const { locale, pathname, push } = useRouter();
   const [mobileMenuVisible, setMobileMenuVisible] = useState(false);
   const { theme, setTheme } = useTheme();
   const { t } = useTranslation("nav");
@@ -25,7 +25,7 @@ const Navbar = () => {
   };
 
   const changeLanguage = (lang) => {
-    replace(pathname, undefined, { locale: lang, scroll: false });
+    push(pathname, undefined, { locale: lang, scroll: false });
   };
 
   return (
