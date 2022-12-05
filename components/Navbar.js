@@ -28,6 +28,19 @@ const Navbar = () => {
     push(pathname, undefined, { locale: lang, scroll: false });
   };
 
+  const themeVariant = {
+    initial: { opacity: 0, y: 10 },
+    exit: { opacity: 0, y: 10 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.2 },
+  };
+
+  const themeAnimateProps = {
+    initial: "initial",
+    exit: "initial",
+    animate: "animate",
+  };
+
   return (
     <>
       <nav className="py-4 bg-white dark:bg-[#252525] fixed top-0 w-full z-30">
@@ -58,11 +71,11 @@ const Navbar = () => {
             <button aria-label="change-theme-button" onClick={() => changeTheme()}>
               <AnimatePresence mode="wait" initial={false}>
                 {theme === "dark" && isMounted ? (
-                  <motion.div key="dark-theme-button" transition={{ duration: 0.2 }} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }}>
+                  <motion.div key="dark-theme-button" {...themeAnimateProps} variants={themeVariant}>
                     <HiMoon size="1.5rem" />
                   </motion.div>
                 ) : (
-                  <motion.div key="light-theme-button" transition={{ duration: 0.2 }} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 10 }}>
+                  <motion.div key="light-theme-button" {...themeAnimateProps} variants={themeVariant}>
                     <HiSun size="1.5rem" />
                   </motion.div>
                 )}
@@ -117,26 +130,12 @@ const Navbar = () => {
               <button aria-label="change-theme-button" onClick={() => changeTheme()} className="ml-4 ">
                 <AnimatePresence mode="wait" initial={false}>
                   {theme === "dark" && isMounted ? (
-                    <motion.div
-                      className="flex items-center"
-                      key="dark-theme-button"
-                      transition={{ duration: 0.2 }}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 10 }}
-                    >
+                    <motion.div className="flex items-center" key="dark-theme-button" {...themeAnimateProps} variants={themeVariant}>
                       <HiMoon size="1.5rem" className="mr-1" />
                       <p className="opacity-80">Dark</p>
                     </motion.div>
                   ) : (
-                    <motion.div
-                      className="flex items-center"
-                      key="light-theme-button"
-                      transition={{ duration: 0.2 }}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 10 }}
-                    >
+                    <motion.div className="flex items-center" key="light-theme-button" {...themeAnimateProps} variants={themeVariant}>
                       <HiSun size="1.5rem" className="mr-1" />
                       <p className="opacity-80">Light</p>
                     </motion.div>

@@ -12,7 +12,7 @@ const RoundProgress = ({ value, unit }) => {
 
   useEffect(() => {
     console.log(displayValue);
-    setDisplayValue((value = value > 100 ? 100 : value < 0 ? 0 : value));
+    setDisplayValue(value > 100 ? 100 : value < 0 ? 0 : value);
     return () => setDisplayValue(0);
   }, []);
 
