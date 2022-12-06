@@ -1,7 +1,4 @@
 import { useTranslation } from "react-i18next";
-import Image from "next/image";
-import fullLogo from "../public/images/logo-full.svg";
-import miniLogo from "../public/images/logo-mini.svg";
 import { HiOutlineGlobeAlt, HiSun, HiMoon } from "react-icons/hi";
 import { HiBars3, HiXMark } from "react-icons/hi2";
 import { FiShoppingCart } from "react-icons/fi";
@@ -47,8 +44,8 @@ const Navbar = () => {
         <div className="container flex justify-between items-center relative z-30 ">
           <div className="flex items-center ">
             <NextLink href="/">
-              <Image src={fullLogo} alt="logo" width={175} className="lg:block hidden" />
-              <Image src={miniLogo} alt="logo" width={35} className="lg:hidden block" />
+              <img src={"/images/logo-full.svg"} alt="logo" width={175} className="lg:block hidden" />
+              <img src={"/images/logo-mini.svg"} alt="logo" width={35} className="lg:hidden block" />
             </NextLink>
             <div className="text-green space-x-6 ml-8 md:block hidden">
               <NextLink href="/">{t("home")}</NextLink>

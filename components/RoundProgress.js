@@ -11,7 +11,6 @@ const RoundProgress = ({ value, unit }) => {
   const [displayValue, setDisplayValue] = useState(0);
 
   useEffect(() => {
-    console.log(displayValue);
     setDisplayValue(value > 100 ? 100 : value < 0 ? 0 : value);
     return () => setDisplayValue(0);
   }, []);

@@ -2,7 +2,6 @@ import NextLink from "../components/NextLink";
 
 import { useTranslation } from "react-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import Image from "next/image";
 import BestSeller from "../components/home/BestSeller";
 import TopShelf from "../components/home/TopShelf";
 import ProductCard from "../components/ProductCard";
@@ -42,36 +41,38 @@ const Home = () => {
               {t("hero.quote", { ns: "home" })}
             </h2>
             <div id="hero-button" className="flex mt-8 font-semibold whitespace-nowrap opacity-0">
-              <NextLink href="/product" className="px-8 py-3 bg-orange mr-6 rounded-lg">{t("hero.login", { ns: "home" })}</NextLink>
+              <NextLink href="/product" className="px-8 py-3 bg-orange mr-6 rounded-lg">
+                {t("hero.login", { ns: "home" })}
+              </NextLink>
               <button className="px-8 py-3 border mr-8 ">{t("hero.shop", { ns: "home" })}</button>
             </div>
           </div>
-          <Image id="hero-image-cover" src="/images/home/hero.jpg" alt="hero-image-cover" priority={true} fill className="opacity-0 w-full h-full object-cover object-[30%_center]" />
+          <img id="hero-image-cover" src="/images/home/hero.jpg" alt="hero-image-cover" className="opacity-0 w-full h-full object-cover object-[30%_center]" />
         </header>
 
         <section ref={whyOrderRef} className="text-center my-[8vh] opacity-0">
-          <Image id="why-order-logo" src="/images/logo-mini.svg" alt="logo" width={50} height={50} className="mx-auto mb-6" />
+          <img id="why-order-logo" src="/images/logo-mini.svg" alt="logo" width={50} height={50} className="mx-auto mb-6" />
           <h2 className="font-bold md:text-5xl text-4xl mb-3">{t("why-order-us.title", { ns: "home" })}</h2>
           <h4 className="md:text-2xl text-xl">{t("why-order-us.desc", { ns: "home" })}</h4>
 
           <div className="grid lg:grid-cols-3 grid-cols-1 items-center mt-6 gap-6 ">
             <div data-why-card className="bg-[#EDEDED] dark:bg-black rounded-lg p-6 w-full h-full max-w-[480px] mx-auto">
               <div className="bg-green p-2 w-16 h-16 rounded-xl mx-auto">
-                <Image src="/icons/clean.svg" alt="icon" width={50} height={50} className="mx-auto  w-full h-full" />
+                <img src="/icons/clean.svg" alt="icon" width={50} height={50} className="mx-auto  w-full h-full" />
               </div>
               <h3 className="font-bold text-xl mt-3 text-green mb-1">{t("why-order-us.clean.title", { ns: "home" })}</h3>
               <p>{t("why-order-us.clean.desc", { ns: "home" })}</p>
             </div>
             <div data-why-card className="bg-[#EDEDED] dark:bg-black rounded-lg p-6 w-full h-full max-w-[480px] mx-auto">
               <div className="bg-green p-2 w-16 h-16 rounded-xl mx-auto">
-                <Image src="/icons/delivery.svg" alt="icon" width={50} height={50} className="mx-auto  w-full h-full" />
+                <img src="/icons/delivery.svg" alt="icon" width={50} height={50} className="mx-auto  w-full h-full" />
               </div>
               <h3 className="font-bold text-xl mt-3 text-green mb-1">{t("why-order-us.delivery.title", { ns: "home" })}</h3>
               <p>{t("why-order-us.delivery.desc", { ns: "home" })}</p>
             </div>
             <div data-why-card className="bg-[#EDEDED] dark:bg-black rounded-lg p-6 w-full h-full max-w-[480px] mx-auto">
               <div className="bg-green p-2 w-16 h-16 rounded-xl mx-auto">
-                <Image src="/icons/quality.svg" alt="icon" width={50} height={50} className="mx-auto w-full h-full" />
+                <img src="/icons/quality.svg" alt="icon" width={50} height={50} className="mx-auto w-full h-full" />
               </div>
               <h3 className="font-bold text-xl mt-3 text-green mb-1">{t("why-order-us.quality.title", { ns: "home" })}</h3>
               <p>{t("why-order-us.quality.desc", { ns: "home" })}</p>
@@ -111,7 +112,7 @@ const Home = () => {
               </div>
               <div className="flex w-full items-center lg:justify-center relative lg:top-[-50px] my-8">
                 <div className="w-14 h-14 bg-green flex-shrink-0 rounded-lg grid place-items-center mr-4 sm:mb-8">
-                  <Image src="/icons/create.svg" alt="product-style-icon" width={30} height={30} />
+                  <img src="/icons/create.svg" alt="product-style-icon" width={30} height={30} />
                 </div>
                 <div>
                   <h3 className="sm:text-4xl text-3xl text-green font-bold mb-2">{t("create.title", { ns: "home" })}</h3>
@@ -127,7 +128,7 @@ const Home = () => {
               </div>
               <div className="flex w-full items-center lg:justify-center relative lg:top-[-50px] my-8">
                 <div className="w-14 h-14 bg-green flex-shrink-0 rounded-lg grid place-items-center mr-4 sm:mb-8">
-                  <Image src="/icons/relax.svg" alt="product-style-icon" width={30} height={30} />
+                  <img src="/icons/relax.svg" alt="product-style-icon" width={30} height={30} />
                 </div>
                 <div>
                   <h3 className="sm:text-4xl text-3xl text-green font-bold mb-2">{t("relax.title", { ns: "home" })}</h3>
@@ -139,7 +140,7 @@ const Home = () => {
             <div className="flex lg:flex-row flex-col">
               <div className="flex w-full items-center relative lg:top-[-50px] my-8">
                 <div className="w-14 h-14 bg-green flex-shrink-0 rounded-lg grid place-items-center mr-4 sm:mb-8">
-                  <Image src="/icons/party.svg" alt="product-style-icon" width={30} height={30} />
+                  <img src="/icons/party.svg" alt="product-style-icon" width={30} height={30} />
                 </div>
                 <div>
                   <h3 className="sm:text-4xl text-3xl text-green font-bold mb-2">{t("party.title", { ns: "home" })}</h3>
@@ -155,7 +156,7 @@ const Home = () => {
             <div className="flex lg:flex-row flex-col">
               <div className="flex w-full items-center relative lg:top-[-50px] my-8">
                 <div className="w-14 h-14 flex-shrink-0 bg-green rounded-lg grid place-items-center mr-4 sm:mb-8">
-                  <Image src="/icons/sleep.svg" alt="product-style-icon" width={30} height={30} />
+                  <img src="/icons/sleep.svg" alt="product-style-icon" width={30} height={30} />
                 </div>
                 <div>
                   <h3 className="sm:text-4xl text-3xl text-green font-bold mb-2">{t("sleep.title", { ns: "home" })}</h3>

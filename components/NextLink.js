@@ -1,11 +1,11 @@
 import Link from "next/link";
 
 const NextLink = ({ children, ...props }) => {
-  const { href, scroll } = props;
+  const { scroll, className = "", target } = props;
 
   return (
-    <Link href {...props} scroll={scroll === true}>
-      {children}
+    <Link {...props} scroll={scroll === true}>
+      <a className={className} target={target}> {children}</a>
     </Link>
   );
 };
