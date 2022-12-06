@@ -1,7 +1,7 @@
-import Link from "next/link";
+import Link from "next/link"
 
 const NextLink = ({ children, ...props }) => {
-  const { scroll, className = "", target } = props;
+  const { scroll, className = "", target } = props
 
   return (
     <Link {...props} scroll={scroll === true}>
@@ -9,7 +9,7 @@ const NextLink = ({ children, ...props }) => {
         {children}
       </a>
     </Link>
-  );
-};
+  )
+}
 
-export default NextLink;
+export default NextLink

@@ -1,17 +1,17 @@
-import { useState, useEffect, useRef } from "react";
-import { IoChevronDownSharp, IoChevronUpSharp } from "react-icons/io5";
-import { motion, AnimatePresence } from "framer-motion";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import gsap from "gsap";
-import NextLink from "../NextLink";
+import { useState, useEffect, useRef } from "react"
+import { IoChevronDownSharp, IoChevronUpSharp } from "react-icons/io5"
+import { motion, AnimatePresence } from "framer-motion"
+import ScrollTrigger from "gsap/dist/ScrollTrigger"
+import gsap from "gsap"
+import NextLink from "../NextLink"
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger)
 
 const TopShelf = ({ t }) => {
-  const [slideIndex, setSlideIndex] = useState(1);
-  const [isUpdate, setIsUpdate] = useState(false);
+  const [slideIndex, setSlideIndex] = useState(1)
+  const [isUpdate, setIsUpdate] = useState(false)
 
-  const containerRef = useRef(null);
+  const containerRef = useRef(null)
   const slideData = [
     {
       name: "Strawberry Kush",
@@ -28,29 +28,29 @@ const TopShelf = ({ t }) => {
       type: "earthy, sweet, floral",
       image: "3.png",
     },
-  ];
+  ]
 
   const nextSlide = () => {
     if (slideIndex + 1 <= slideData.length) {
-      setIsUpdate(true);
-      setTimeout(() => setSlideIndex((prev) => prev + 1), 100);
+      setIsUpdate(true)
+      setTimeout(() => setSlideIndex((prev) => prev + 1), 100)
     }
-  };
+  }
 
   const prevSlide = () => {
     if (slideIndex - 1 >= 1) {
-      setIsUpdate(true);
-      setTimeout(() => setSlideIndex((prev) => prev - 1), 100);
+      setIsUpdate(true)
+      setTimeout(() => setSlideIndex((prev) => prev - 1), 100)
     }
-  };
+  }
 
   useEffect(() => {
-    const trigger = { trigger: containerRef.current, start: "10% 55%", end: "55% 55%" };
+    const trigger = { trigger: containerRef.current, start: "10% 55%", end: "55% 55%" }
 
-    gsap.fromTo("#top-shelf-img", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.65, delay: 0.25, scrollTrigger: trigger });
-    gsap.fromTo("#top-slide-control", { opacity: 0, y: 25 }, { opacity: 1, y: 0, delay: 0.1, duration: 0.65, scrollTrigger: trigger });
-    gsap.fromTo("#top-text-desc", { opacity: 0, x: 50 }, { opacity: 1, x: 0, duration: 0.65, scrollTrigger: trigger });
-  }, []);
+    gsap.fromTo("#top-shelf-img", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.65, delay: 0.25, scrollTrigger: trigger })
+    gsap.fromTo("#top-slide-control", { opacity: 0, y: 25 }, { opacity: 1, y: 0, delay: 0.1, duration: 0.65, scrollTrigger: trigger })
+    gsap.fromTo("#top-text-desc", { opacity: 0, x: 50 }, { opacity: 1, x: 0, duration: 0.65, scrollTrigger: trigger })
+  }, [])
 
   return (
     <section className="relative mt-28 overflow-hidden" ref={containerRef}>
@@ -60,8 +60,8 @@ const TopShelf = ({ t }) => {
           <h3 className="text-white font-bold text-5xl mb-2">Cannabis 10 breed</h3>
           <h3 className="text-orange font-bold text-5xl mb-6">Top Shelf</h3>
           <p className="text-white">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quam ducimus doloribus nisi incidunt sed quas totam omnis eum, eos exercitationem temporibus animi illum nulla illo
-            enim, laboriosam ipsum deserunt!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus quam ducimus doloribus nisi incidunt sed quas totam omnis eum, eos
+            exercitationem temporibus animi illum nulla illo enim, laboriosam ipsum deserunt!
           </p>
           <NextLink href="/">
             <button className="px-8 py-3 bg-orange my-6 text-white rounded-lg">{t("shop now")}</button>
@@ -86,7 +86,10 @@ const TopShelf = ({ t }) => {
             </NextLink>
           </div>
 
-          <div id="top-slide-control" className="bg-white dark:bg-black p-4 rounded-lg flex absolute md:w-[70%] w-[90%] left-1/2 translate-x-[-50%] md:bottom-8 bottom-0 z-10">
+          <div
+            id="top-slide-control"
+            className="bg-white dark:bg-black p-4 rounded-lg flex absolute md:w-[70%] w-[90%] left-1/2 translate-x-[-50%] md:bottom-8 bottom-0 z-10"
+          >
             <div className="w-full mr-6">
               <AnimatePresence>
                 {!isUpdate && (
@@ -97,12 +100,18 @@ const TopShelf = ({ t }) => {
                       </motion.p>
                       <p>Next Slide</p>
                     </div>
-                    <motion.h3 initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.2 }} className="font-bold text-2xl text-green">
+                    <motion.h3
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="font-bold text-2xl text-green"
+                    >
                       {slideData[slideIndex - 1].name}
                     </motion.h3>
                     <motion.h5
                       onAnimationComplete={() => {
-                        setIsUpdate(false);
+                        setIsUpdate(false)
                       }}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
@@ -127,8 +136,18 @@ const TopShelf = ({ t }) => {
           </div>
           <AnimatePresence>
             {!isUpdate && (
-              <motion.div className="mx-auto w-[13rem] h-[22rem] " initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.8 }}>
-                <img id="top-shelf-img" src={`/images/products/${slideData[slideIndex - 1].image}`} alt="product-image" className="w-full h-full object-contain" />
+              <motion.div
+                className="mx-auto w-[13rem] h-[22rem] "
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+              >
+                <img
+                  id="top-shelf-img"
+                  src={`/images/products/${slideData[slideIndex - 1].image}`}
+                  alt="product-image"
+                  className="w-full h-full object-contain"
+                />
               </motion.div>
             )}
           </AnimatePresence>
@@ -138,7 +157,7 @@ const TopShelf = ({ t }) => {
       <div className="w-1/2 h-full absolute lg:block hidden top-0 bg-green"></div>
       <div className="w-1/2 h-full absolute lg:block hidden top-0 right-0 bg-[#EDEDED] dark:bg-transparent"></div>
     </section>
-  );
-};
+  )
+}
 
-export default TopShelf;
+export default TopShelf

@@ -1,37 +1,41 @@
-import React, { useState } from "react";
-import { FaHeart, FaRegHeart } from "react-icons/fa";
-import { FiShoppingCart } from "react-icons/fi";
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import RoundProgress from "../RoundProgress";
-import Image from "next/image";
-import NextLink from "../NextLink";
+import React, { useState } from "react"
+import { FaHeart, FaRegHeart } from "react-icons/fa"
+import { FiShoppingCart } from "react-icons/fi"
+import { useEffect, useRef } from "react"
+import gsap from "gsap"
+import ScrollTrigger from "gsap/dist/ScrollTrigger"
+import RoundProgress from "../RoundProgress"
+import Image from "next/image"
+import NextLink from "../NextLink"
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger)
 
 const BestSeller = ({ t }) => {
-  const [selectedWeight, setSelectedWeight] = useState("3g");
-  const [liked, setLiked] = useState(false);
-  const containerRef = useRef(null);
-  const productDetailRef = useRef(null);
+  const [selectedWeight, setSelectedWeight] = useState("3g")
+  const [liked, setLiked] = useState(false)
+  const containerRef = useRef(null)
+  const productDetailRef = useRef(null)
 
-  const activeStyle = "w-14 h-12 bg-green text-white";
-  const inActiveStyle = "w-14 h-12 border border-gray-light";
+  const activeStyle = "w-14 h-12 bg-green text-white"
+  const inActiveStyle = "w-14 h-12 border border-gray-light"
 
   const priceRate = {
     "3g": "฿540/3 G",
     "10g": "฿760/10 G",
     "30g": "฿1240/30 G",
-  };
+  }
 
   useEffect(() => {
-    const trigger = { trigger: containerRef.current, start: "10% 55%", end: "55% 55%" };
+    const trigger = { trigger: containerRef.current, start: "10% 55%", end: "55% 55%" }
 
-    gsap.fromTo(".round-progress", { opacity: 0, x: 50 }, { opacity: 1, x: 0, duration: 0.65, stagger: 0.25, scrollTrigger: trigger });
-    gsap.fromTo("#best-seller-product-image", { opacity: 0, scale: 0.75 }, { opacity: 1, scale: 1, delay: 0.1, duration: 0.65, scrollTrigger: trigger });
-    gsap.fromTo(productDetailRef.current, { opacity: 0, y: 25 }, { opacity: 1, y: 0, delay: 0.1, duration: 0.65, scrollTrigger: trigger });
-  }, []);
+    gsap.fromTo(".round-progress", { opacity: 0, x: 50 }, { opacity: 1, x: 0, duration: 0.65, stagger: 0.25, scrollTrigger: trigger })
+    gsap.fromTo(
+      "#best-seller-product-image",
+      { opacity: 0, scale: 0.75 },
+      { opacity: 1, scale: 1, delay: 0.1, duration: 0.65, scrollTrigger: trigger }
+    )
+    gsap.fromTo(productDetailRef.current, { opacity: 0, y: 25 }, { opacity: 1, y: 0, delay: 0.1, duration: 0.65, scrollTrigger: trigger })
+  }, [])
 
   return (
     <section className="relative " ref={containerRef}>
@@ -43,7 +47,14 @@ const BestSeller = ({ t }) => {
             <RoundProgress value={50} unit="Sativa" />
           </div>
           <div className="mx-auto w-[13rem] h-[20rem] mb-2">
-            <Image id="best-seller-product-image" src="/images/products/1.png" alt="product-image" width={208} height={320} className="w-full h-full object-contain" />
+            <Image
+              id="best-seller-product-image"
+              src="/images/products/1.png"
+              alt="product-image"
+              width={208}
+              height={320}
+              className="w-full h-full object-contain"
+            />
           </div>
         </div>
 
@@ -57,7 +68,9 @@ const BestSeller = ({ t }) => {
           <p className="text-green mb-4">{t("best seller")}</p>
           <div className="flex justify-between items-center">
             <h2 className="font-bold text-4xl leading-[1.15]">Strawberry Kush</h2>
-            <button onClick={() => setLiked(!liked)}>{liked ? <FaHeart size="1.5rem" color="#de3c3c" /> : <FaRegHeart size="1.5rem" className="opacity-50" />}</button>
+            <button onClick={() => setLiked(!liked)}>
+              {liked ? <FaHeart size="1.5rem" color="#de3c3c" /> : <FaRegHeart size="1.5rem" className="opacity-50" />}
+            </button>
           </div>
           <p>earthy, sweet, floral</p>
           <div className="flex md:items-center justify-between md:flex-row flex-col-reverse mt-4">
@@ -75,8 +88,8 @@ const BestSeller = ({ t }) => {
             <h3 className="font-bold lg:text-[2.25rem] text-[1.8rem] text-green">{priceRate[selectedWeight]}</h3>
           </div>
           <p className="mt-6 line-clamp-3">
-            Relaxation is the keyword at Gelato . Novice users will soon be overwhelmed by the relaxed and euphoric effect. Can you take a beating? Then Gelato can also give you a boost on a
-            productive and creative level level.
+            Relaxation is the keyword at Gelato . Novice users will soon be overwhelmed by the relaxed and euphoric effect. Can you take a beating?
+            Then Gelato can also give you a boost on a productive and creative level level.
           </p>
           <span>
             <NextLink href="/" className="underline">
@@ -93,7 +106,7 @@ const BestSeller = ({ t }) => {
       <div className="w-1/2 h-full absolute lg:block hidden top-0 bg-[#FFFFFF] dark:bg-transparent"></div>
       <div className="w-1/2 h-full absolute lg:block hidden top-0 right-0 dark:bg-black"></div>
     </section>
-  );
-};
+  )
+}
 
-export default BestSeller;
+export default BestSeller

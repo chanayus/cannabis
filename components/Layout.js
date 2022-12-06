@@ -1,35 +1,35 @@
-import dynamic from "next/dynamic";
-import { motion, AnimatePresence } from "framer-motion";
-import Navbar from "../components/Navbar";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import dynamic from "next/dynamic"
+import { motion, AnimatePresence } from "framer-motion"
+import Navbar from "../components/Navbar"
+import { useRouter } from "next/router"
+import { useEffect, useState } from "react"
 
 const Footer = dynamic(() => import("./Footer"), {
   ssr: false,
-});
+})
 
 const Layout = ({ children }) => {
-  const [firstRender, setFirstRender] = useState(true);
-  const router = useRouter();
+  const [firstRender, setFirstRender] = useState(true)
+  const router = useRouter()
 
   useEffect(() => {
-    window.history.scrollRestoration = "manual";
+    window.history.scrollRestoration = "manual"
     if (firstRender) {
-      window.scroll(0, 0);
-      setFirstRender(false);
+      window.scroll(0, 0)
+      setFirstRender(false)
     } else {
       setTimeout(() => {
-        window.scroll(0, 0);
-      }, 350);
+        window.scroll(0, 0)
+      }, 350)
     }
     return () => {
       clearTimeout(
         setTimeout(() => {
-          window.scroll(0, 0);
+          window.scroll(0, 0)
         }, 350)
-      );
-    };
-  }, [router]);
+      )
+    }
+  }, [router])
 
   return (
     <>
@@ -49,7 +49,7 @@ const Layout = ({ children }) => {
 
       <Footer />
     </>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout

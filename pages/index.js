@@ -1,33 +1,33 @@
-import NextLink from "../components/NextLink";
+import NextLink from "../components/NextLink"
 
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import BestSeller from "../components/home/BestSeller";
-import TopShelf from "../components/home/TopShelf";
-import ProductCard from "../components/ProductCard";
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import useTranslation from "../hooks/useTranslation";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations"
+import BestSeller from "../components/home/BestSeller"
+import TopShelf from "../components/home/TopShelf"
+import ProductCard from "../components/ProductCard"
+import { useEffect, useRef } from "react"
+import gsap from "gsap"
+import ScrollTrigger from "gsap/dist/ScrollTrigger"
+import useTranslation from "../hooks/useTranslation"
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger)
 
 const Home = () => {
-  const { t, i18n } = useTranslation(["common", "home"]);
-  const whyOrderRef = useRef(null);
+  const { t, i18n } = useTranslation(["common", "home"])
+  const whyOrderRef = useRef(null)
 
   useEffect(() => {
     // Animate for Hero Section
-    gsap.fromTo("#hero-image-cover", { opacity: 0, scale: 1.25 }, { opacity: 1, scale: 1, delay: 0.1, duration: 0.75 });
-    gsap.fromTo("#hero-brand-text", { opacity: 0, y: 20 }, { opacity: 1, y: 0, delay: 0.3, duration: 0.45 });
-    gsap.fromTo("#hero-quote", { opacity: 0, y: 20 }, { opacity: 1, y: 0, delay: 0.5, duration: 0.45 });
-    gsap.fromTo("#hero-button", { opacity: 0, y: 20 }, { opacity: 1, y: 0, delay: 0.7, duration: 0.45 });
+    gsap.fromTo("#hero-image-cover", { opacity: 0, scale: 1.25 }, { opacity: 1, scale: 1, delay: 0.1, duration: 0.75 })
+    gsap.fromTo("#hero-brand-text", { opacity: 0, y: 20 }, { opacity: 1, y: 0, delay: 0.3, duration: 0.45 })
+    gsap.fromTo("#hero-quote", { opacity: 0, y: 20 }, { opacity: 1, y: 0, delay: 0.5, duration: 0.45 })
+    gsap.fromTo("#hero-button", { opacity: 0, y: 20 }, { opacity: 1, y: 0, delay: 0.7, duration: 0.45 })
 
     // Animate for why-order Section
-    const whyOrderTrigger = { trigger: whyOrderRef.current, start: "top 55%", end: "55% 55%" };
+    const whyOrderTrigger = { trigger: whyOrderRef.current, start: "top 55%", end: "55% 55%" }
 
-    gsap.fromTo(whyOrderRef.current, { opacity: 0 }, { opacity: 1, duration: 0.35, scrollTrigger: whyOrderTrigger });
-    gsap.fromTo("[data-why-card]", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.35, stagger: 0.15, scrollTrigger: whyOrderTrigger });
-  }, []);
+    gsap.fromTo(whyOrderRef.current, { opacity: 0 }, { opacity: 1, duration: 0.35, scrollTrigger: whyOrderTrigger })
+    gsap.fromTo("[data-why-card]", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.35, stagger: 0.15, scrollTrigger: whyOrderTrigger })
+  }, [])
 
   return (
     <>
@@ -47,7 +47,12 @@ const Home = () => {
               <button className="px-8 py-3 border mr-8 ">{t("shop now")}</button>
             </div>
           </div>
-          <img id="hero-image-cover" src="/images/home/hero.jpg" alt="hero-image-cover" className="opacity-0 w-full h-full object-cover object-[30%_center]" />
+          <img
+            id="hero-image-cover"
+            src="/images/home/hero.jpg"
+            alt="hero-image-cover"
+            className="opacity-0 w-full h-full object-cover object-[30%_center]"
+          />
         </header>
 
         <section ref={whyOrderRef} className="text-center my-[8vh] opacity-0">
@@ -170,8 +175,8 @@ const Home = () => {
             </div>
 
             <p className="text-center text-green max-w-[80ch] mx-auto my-10">
-              Coffeeshop Relax pays a lot of attention to selecting the best products. All our weed and hash products are thoroughly tested, so that only the cleanest and strongest varieties end up on
-              our map. View all our weed and hash products and their effect below!
+              Coffeeshop Relax pays a lot of attention to selecting the best products. All our weed and hash products are thoroughly tested, so that
+              only the cleanest and strongest varieties end up on our map. View all our weed and hash products and their effect below!
             </p>
             <div className="flex justify-center mb-8">
               <NextLink href="/" className="font-bold text-green border px-8 py-2 rounded-lg text-xl">
@@ -182,15 +187,15 @@ const Home = () => {
         </div>
       </section>
     </>
-  );
-};
+  )
+}
 
 export async function getStaticProps({ locale }) {
   return {
     props: {
       ...(await serverSideTranslations(locale, ["common", "home", "nav"])),
     },
-  };
+  }
 }
 
-export default Home;
+export default Home

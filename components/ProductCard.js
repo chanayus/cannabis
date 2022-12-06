@@ -1,13 +1,13 @@
-import { FiShoppingCart } from "react-icons/fi";
-import { FaHeart } from "react-icons/fa";
-import { useState } from "react";
-import { useTranslation } from "react-i18next";
-import Image from "next/image";
-import NextLink from "./NextLink";
+import { FiShoppingCart } from "react-icons/fi"
+import { FaHeart } from "react-icons/fa"
+import { useState } from "react"
+import { useTranslation } from "react-i18next"
+import Image from "next/image"
+import NextLink from "./NextLink"
 
 const ProductCard = () => {
-  const { t } = useTranslation("common");
-  const [liked, setLiked] = useState(false);
+  const { t } = useTranslation("common")
+  const [liked, setLiked] = useState(false)
 
   return (
     <div className="bg-white dark:bg-black md:rounded-2xl rounded-lg sm:p-4 p-3 w-full max-w-[240px] md:mb-16">
@@ -43,7 +43,7 @@ const ProductCard = () => {
         {t("add to cart")}
       </button>
     </div>
-  );
-};
+  )
+}
 
-export default ProductCard;
+export default ProductCard

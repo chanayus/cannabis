@@ -1,9 +1,9 @@
-import React from "react";
-import useTranslation from "../hooks/useTranslation";
-import NextLink from "./NextLink";
+import React from "react"
+import useTranslation from "../hooks/useTranslation"
+import NextLink from "./NextLink"
 
 const Footer = () => {
-  const { t } = useTranslation("nav");
+  const { t } = useTranslation("nav")
   return (
     <footer className="w-full bg-green text-center text-white py-8">
       <div className="space-x-8 mb-6">
@@ -29,7 +29,7 @@ const Footer = () => {
       </div>
       <p>© 2022 Your Company, Inc. All rights reserved.</p>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

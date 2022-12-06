@@ -1,25 +1,25 @@
-import React, { useState } from "react";
-import { FaHeart } from "react-icons/fa";
-import { FiShoppingCart } from "react-icons/fi";
-import { useRef } from "react";
-import RoundProgress from "../RoundProgress";
-import Image from "next/image";
-import NextLink from "../NextLink";
+import React, { useState } from "react"
+import { FaHeart } from "react-icons/fa"
+import { FiShoppingCart } from "react-icons/fi"
+import { useRef } from "react"
+import RoundProgress from "../RoundProgress"
+import Image from "next/image"
+import NextLink from "../NextLink"
 
 const Header = ({ t }) => {
-  const [selectedWeight, setSelectedWeight] = useState("3g");
-  const [liked, setLiked] = useState(false);
-  const containerRef = useRef(null);
-  const productDetailRef = useRef(null);
+  const [selectedWeight, setSelectedWeight] = useState("3g")
+  const [liked, setLiked] = useState(false)
+  const containerRef = useRef(null)
+  const productDetailRef = useRef(null)
 
-  const activeStyle = "w-14 h-12 bg-green text-white";
-  const inActiveStyle = "w-14 h-12 border border-gray-light";
+  const activeStyle = "w-14 h-12 bg-green text-white"
+  const inActiveStyle = "w-14 h-12 border border-gray-light"
 
   const priceRate = {
     "3g": "฿540/3 G",
     "10g": "฿760/10 G",
     "30g": "฿1240/30 G",
-  };
+  }
 
   return (
     <section className="relative " ref={containerRef}>
@@ -31,7 +31,15 @@ const Header = ({ t }) => {
             <RoundProgress value={50} unit="Sativa" />
           </div>
           <div className="mx-auto w-[13rem] h-[20rem] mb-2">
-            <Image id="best-seller-product-image" priority={true} src="/images/products/1.png" alt="product-image" width={208} height={320} className="w-full h-full object-contain" />
+            <Image
+              id="best-seller-product-image"
+              priority={true}
+              src="/images/products/1.png"
+              alt="product-image"
+              width={208}
+              height={320}
+              className="w-full h-full object-contain"
+            />
           </div>
         </div>
 
@@ -61,8 +69,8 @@ const Header = ({ t }) => {
             <h3 className="font-bold lg:text-[2.25rem] text-[1.8rem] text-green">{priceRate[selectedWeight]}</h3>
           </div>
           <p className="mt-6 line-clamp-3">
-            Relaxation is the keyword at Gelato . Novice users will soon be overwhelmed by the relaxed and euphoric effect. Can you take a beating? Then Gelato can also give you a boost on a
-            productive and creative level level.
+            Relaxation is the keyword at Gelato . Novice users will soon be overwhelmed by the relaxed and euphoric effect. Can you take a beating?
+            Then Gelato can also give you a boost on a productive and creative level level.
           </p>
           <span>
             <NextLink href="/" className="underline">
@@ -79,7 +87,7 @@ const Header = ({ t }) => {
       <div className="w-1/2 h-full absolute lg:block hidden top-0 bg-[#FFFFFF] dark:bg-transparent"></div>
       <div className="w-1/2 h-full absolute lg:block hidden top-0 right-0 dark:bg-black"></div>
     </section>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

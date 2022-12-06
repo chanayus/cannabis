@@ -1,19 +1,19 @@
-import { useTheme } from "next-themes";
-import { CircularProgressbarWithChildren } from "react-circular-progressbar";
-import "react-circular-progressbar/dist/styles.css";
-import useIsMounted from "../hooks/useIsMounted";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useTheme } from "next-themes"
+import { CircularProgressbarWithChildren } from "react-circular-progressbar"
+import "react-circular-progressbar/dist/styles.css"
+import useIsMounted from "../hooks/useIsMounted"
+import { useEffect } from "react"
+import { useState } from "react"
 
 const RoundProgress = ({ value, unit }) => {
-  const isMounted = useIsMounted();
-  const { theme } = useTheme();
-  const [displayValue, setDisplayValue] = useState(0);
+  const isMounted = useIsMounted()
+  const { theme } = useTheme()
+  const [displayValue, setDisplayValue] = useState(0)
 
   useEffect(() => {
-    setDisplayValue(value > 100 ? 100 : value < 0 ? 0 : value);
-    return () => setDisplayValue(0);
-  }, []);
+    setDisplayValue(value > 100 ? 100 : value < 0 ? 0 : value)
+    return () => setDisplayValue(0)
+  }, [])
 
   return (
     <div className="w-[clamp(62px,9vw,100px)] h-[clamp(62px,9vw,100px)] round-progress">
@@ -42,7 +42,7 @@ const RoundProgress = ({ value, unit }) => {
         </div>
       </CircularProgressbarWithChildren>
     </div>
-  );
-};
+  )
+}
 
-export default RoundProgress;
+export default RoundProgress

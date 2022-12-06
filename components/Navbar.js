@@ -1,42 +1,42 @@
-import useTranslation from "../hooks/useTranslation";
-import { HiOutlineGlobeAlt, HiSun, HiMoon } from "react-icons/hi";
-import { HiBars3, HiXMark } from "react-icons/hi2";
-import { FiShoppingCart } from "react-icons/fi";
-import { useTheme } from "next-themes";
-import { useRouter } from "next/router";
-import { AnimatePresence, motion } from "framer-motion";
-import useIsMounted from "../hooks/useIsMounted";
-import { useState } from "react";
-import NextLink from "./NextLink";
+import useTranslation from "../hooks/useTranslation"
+import { HiOutlineGlobeAlt, HiSun, HiMoon } from "react-icons/hi"
+import { HiBars3, HiXMark } from "react-icons/hi2"
+import { FiShoppingCart } from "react-icons/fi"
+import { useTheme } from "next-themes"
+import { useRouter } from "next/router"
+import { AnimatePresence, motion } from "framer-motion"
+import useIsMounted from "../hooks/useIsMounted"
+import { useState } from "react"
+import NextLink from "./NextLink"
 
 const Navbar = () => {
-  const { locale, pathname, push } = useRouter();
-  const [mobileMenuVisible, setMobileMenuVisible] = useState(false);
-  const { theme, setTheme } = useTheme();
-  const { t } = useTranslation("nav");
-  const isMounted = useIsMounted();
-  const currentTheme = theme || "light";
+  const { locale, pathname, push } = useRouter()
+  const [mobileMenuVisible, setMobileMenuVisible] = useState(false)
+  const { theme, setTheme } = useTheme()
+  const { t } = useTranslation("nav")
+  const isMounted = useIsMounted()
+  const currentTheme = theme || "light"
 
   const changeTheme = () => {
-    setTheme(currentTheme === "dark" ? "light" : "dark");
-  };
+    setTheme(currentTheme === "dark" ? "light" : "dark")
+  }
 
   const changeLanguage = (lang) => {
-    push(pathname, undefined, { locale: lang, scroll: false });
-  };
+    push(pathname, undefined, { locale: lang, scroll: false })
+  }
 
   const themeVariant = {
     initial: { opacity: 0, y: 10 },
     exit: { opacity: 0, y: 10 },
     animate: { opacity: 1, y: 0 },
     transition: { duration: 0.2 },
-  };
+  }
 
   const themeAnimateProps = {
     initial: "initial",
     exit: "initial",
     animate: "animate",
-  };
+  }
 
   return (
     <>
@@ -58,10 +58,18 @@ const Navbar = () => {
           <div className="md:flex hidden items-center text-green space-x-4">
             <div className="flex items-center text-black dark:text-white">
               <HiOutlineGlobeAlt size="1.5rem" />
-              <button aria-label="English" onClick={() => changeLanguage("en")} className={`border-r rounded-none px-2 ${locale !== "en" ? "opacity-50 font-medium" : "font-bold"}`}>
+              <button
+                aria-label="English"
+                onClick={() => changeLanguage("en")}
+                className={`border-r rounded-none px-2 ${locale !== "en" ? "opacity-50 font-medium" : "font-bold"}`}
+              >
                 English
               </button>
-              <button aria-label="Thai" onClick={() => changeLanguage("th")} className={`px-2 ${locale !== "th" ? "opacity-50 font-medium" : "font-bold"}`}>
+              <button
+                aria-label="Thai"
+                onClick={() => changeLanguage("th")}
+                className={`px-2 ${locale !== "th" ? "opacity-50 font-medium" : "font-bold"}`}
+              >
                 Thai
               </button>
             </div>
@@ -115,10 +123,18 @@ const Navbar = () => {
 
             <div className="flex items-center text-black dark:text-white mt-6">
               <HiOutlineGlobeAlt size="1.5rem" />
-              <button aria-label="English" onClick={() => changeLanguage("en")} className={`border-r rounded-none px-2 ${locale !== "en" ? "opacity-50 font-medium" : "font-bold"}`}>
+              <button
+                aria-label="English"
+                onClick={() => changeLanguage("en")}
+                className={`border-r rounded-none px-2 ${locale !== "en" ? "opacity-50 font-medium" : "font-bold"}`}
+              >
                 English
               </button>
-              <button aria-label="Thai" onClick={() => changeLanguage("th")} className={`px-2 ${locale !== "th" ? "opacity-50 font-medium" : "font-bold"}`}>
+              <button
+                aria-label="Thai"
+                onClick={() => changeLanguage("th")}
+                className={`px-2 ${locale !== "th" ? "opacity-50 font-medium" : "font-bold"}`}
+              >
                 Thai
               </button>
             </div>
@@ -144,7 +160,7 @@ const Navbar = () => {
         </div>
       )}
     </>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar
