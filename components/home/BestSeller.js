@@ -47,7 +47,7 @@ const BestSeller = ({ t }) => {
             <RoundProgress value={50} unit="Sativa" />
           </div>
           <div className="mx-auto w-[13rem] h-[20rem] mb-2">
-            <Image
+            <img
               id="best-seller-product-image"
               src="/images/products/1.png"
               alt="product-image"
