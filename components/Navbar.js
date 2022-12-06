@@ -1,4 +1,4 @@
-import { useTranslation } from "react-i18next";
+import useTranslation from "../hooks/useTranslation";
 import { HiOutlineGlobeAlt, HiSun, HiMoon } from "react-icons/hi";
 import { HiBars3, HiXMark } from "react-icons/hi2";
 import { FiShoppingCart } from "react-icons/fi";

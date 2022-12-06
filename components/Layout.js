@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "../components/Navbar";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -13,20 +13,20 @@ const Layout = ({ children }) => {
   const router = useRouter();
 
   useEffect(() => {
-    window.history.scrollRestoration = 'manual'
+    window.history.scrollRestoration = "manual";
     if (firstRender) {
       window.scroll(0, 0);
       setFirstRender(false);
     } else {
       setTimeout(() => {
         window.scroll(0, 0);
-      }, 100);
+      }, 350);
     }
     return () => {
       clearTimeout(
         setTimeout(() => {
           window.scroll(0, 0);
-        }, 100)
+        }, 350)
       );
     };
   }, [router]);
@@ -34,16 +34,18 @@ const Layout = ({ children }) => {
   return (
     <>
       <Navbar />
-      <motion.div
-        exit={{ opacity: 0 }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.45 }}
-        key={router.pathname}
-        className="w-full min-h-[calc(100vh-200px)] py-[7.5vh] md:pt-[74px] pt-[65px]"
-      >
-        {children}
-      </motion.div>
+      <AnimatePresence mode="wait">
+        <motion.div
+          exit={{ opacity: 0 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
+          key={router.pathname}
+          className="w-full min-h-[calc(100vh-200px)] py-[7.5vh] md:pt-[74px] pt-[65px]"
+        >
+          {children}
+        </motion.div>
+      </AnimatePresence>
 
       <Footer />
     </>

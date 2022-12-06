@@ -5,7 +5,9 @@ const NextLink = ({ children, ...props }) => {
 
   return (
     <Link {...props} scroll={scroll === true}>
-      <a className={className} target={target}> {children}</a>
+      <a className={className} target={target}>
+        {children}
+      </a>
     </Link>
   );
 };

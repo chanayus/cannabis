@@ -16,13 +16,13 @@ const RoundProgress = ({ value, unit }) => {
   }, []);
 
   return (
-    <div className="w-[clamp(60px,8vw,100px)] h-[clamp(60px,8vw,100px)] round-progress">
+    <div className="w-[clamp(62px,9vw,100px)] h-[clamp(62px,9vw,100px)] round-progress">
       <CircularProgressbarWithChildren
         value={displayValue}
         styles={{
           path: {
             stroke: `#ED744A`,
-            transition: "stroke-dashoffset 1s ease 0.1s",
+            transition: "stroke-dashoffset 1s ease 0.275s",
             transformOrigin: "center center",
           },
           trail: {
@@ -38,7 +38,7 @@ const RoundProgress = ({ value, unit }) => {
       >
         <div className="md:text-base text-center text-sm">
           <strong>{displayValue}%</strong>
-          <p>{unit}</p>
+          <p className="max-w-[6ch] truncate">{unit}</p>
         </div>
       </CircularProgressbarWithChildren>
     </div>

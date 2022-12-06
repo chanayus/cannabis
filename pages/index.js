@@ -1,6 +1,5 @@
 import NextLink from "../components/NextLink";
 
-import { useTranslation } from "react-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import BestSeller from "../components/home/BestSeller";
 import TopShelf from "../components/home/TopShelf";
@@ -8,11 +7,12 @@ import ProductCard from "../components/ProductCard";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import useTranslation from "../hooks/useTranslation";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
-  const { t } = useTranslation(["common", "home"]);
+  const { t, i18n } = useTranslation(["common", "home"]);
   const whyOrderRef = useRef(null);
 
   useEffect(() => {
@@ -42,9 +42,9 @@ const Home = () => {
             </h2>
             <div id="hero-button" className="flex mt-8 font-semibold whitespace-nowrap opacity-0">
               <NextLink href="/product" className="px-8 py-3 bg-orange mr-6 rounded-lg">
-                {t("hero.login", { ns: "home" })}
+                {t("login")}
               </NextLink>
-              <button className="px-8 py-3 border mr-8 ">{t("hero.shop", { ns: "home" })}</button>
+              <button className="px-8 py-3 border mr-8 ">{t("shop now")}</button>
             </div>
           </div>
           <img id="hero-image-cover" src="/images/home/hero.jpg" alt="hero-image-cover" className="opacity-0 w-full h-full object-cover object-[30%_center]" />
