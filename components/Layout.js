@@ -34,7 +34,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Navbar />
-      <AnimatePresence mode="wait">
+      {/* <AnimatePresence mode="wait"> */}
         <motion.div
           exit={{ opacity: 0 }}
           initial={{ opacity: 0 }}
@@ -45,7 +45,7 @@ const Layout = ({ children }) => {
         >
           {children}
         </motion.div>
-      </AnimatePresence>
+      {/* </AnimatePresence> */}
 
       <Footer />
     </>
