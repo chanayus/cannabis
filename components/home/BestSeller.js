@@ -60,7 +60,7 @@ const BestSeller = ({ t }) => {
 
         <div ref={productDetailRef} className="p-8 lg:bg-transparent lg:dark:bg-transparent bg-white dark:bg-black ">
           <div className="flex justify-between items-center mb-2">
-            <Image src="/images/aaa.svg" alt="aaa-badge" width={120} height={40} className="relative lg:left-[-8%] left-0" />
+            <img src="/images/aaa.svg" alt="aaa-badge" width={120} height={40} className="relative lg:left-[-8%] left-0" />
             <NextLink href="/" className="text-orange">
               {t("view all")}
             </NextLink>

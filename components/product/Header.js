@@ -31,7 +31,7 @@ const Header = ({ t }) => {
             <RoundProgress value={50} unit="Sativa" />
           </div>
           <div className="mx-auto w-[13rem] h-[20rem] mb-2">
-            <Image
+            <img
               id="best-seller-product-image"
               priority={true}
               src="/images/products/1.png"
@@ -44,7 +44,7 @@ const Header = ({ t }) => {
         </div>
 
         <div ref={productDetailRef} className="p-8 lg:bg-transparent lg:dark:bg-transparent bg-white dark:bg-black ">
-          <Image src="/images/aaa.svg" alt="aaa-badge" width={120} height={40} className="mb-2 relative lg:left-[-8%] left-0" />
+          <img src="/images/aaa.svg" alt="aaa-badge" width={120} height={40} className="mb-2 relative lg:left-[-8%] left-0" />
 
           <p className="text-green mb-4">Cannabis</p>
           <div className="flex justify-between items-center">

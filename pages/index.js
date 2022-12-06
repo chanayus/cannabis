@@ -7,7 +7,7 @@ import ProductCard from "../components/ProductCard"
 import { useEffect, useRef } from "react"
 import gsap from "gsap"
 import ScrollTrigger from "gsap/dist/ScrollTrigger"
-import useTranslation from "../hooks/useTranslation"
+import { useTranslation } from "react-i18next"
 
 gsap.registerPlugin(ScrollTrigger)
 

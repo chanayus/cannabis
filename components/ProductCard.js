@@ -23,7 +23,7 @@ const ProductCard = () => {
           </div>
         </div>
         <div className="w-[8.45rem] h-[12rem] md:absolute lg:top-[-35%] top-[-25%] right-[-2.5%] md:mx-none mx-auto">
-          <Image src="/images/products/1.png" width={135} height={192} alt="product-image" className="w-full h-full object-contain" />
+          <img src="/images/products/1.png" width={135} height={192} alt="product-image" className="w-full h-full object-contain" />
         </div>
       </div>
       <div>

@@ -29,7 +29,7 @@ const Layout = ({ children }) => {
         }, 350)
       )
     }
-  }, [router])
+  }, [router.pathname])
 
   return (
     <>
