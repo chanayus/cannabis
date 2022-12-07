@@ -8,6 +8,7 @@ import { useEffect, useRef } from "react"
 import gsap from "gsap"
 import ScrollTrigger from "gsap/dist/ScrollTrigger"
 import { useTranslation } from "react-i18next"
+import CannabisBg from "../components/home/CannabisBg"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -23,7 +24,7 @@ const Home = () => {
     gsap.fromTo("#hero-button", { opacity: 0, y: 20 }, { opacity: 1, y: 0, delay: 0.7, duration: 0.45 })
 
     // Animate for why-order Section
-    const whyOrderTrigger = { trigger: whyOrderRef.current, start: "top 55%", end: "55% 55%" }
+    const whyOrderTrigger = { trigger: whyOrderRef.current, start: "top 55%", end: "+=60%", toggleActions: "play reverse play reverse" }
 
     gsap.fromTo(whyOrderRef.current, { opacity: 0 }, { opacity: 1, duration: 0.35, scrollTrigger: whyOrderTrigger })
     gsap.fromTo("[data-why-card]", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.35, stagger: 0.15, scrollTrigger: whyOrderTrigger })
@@ -106,8 +107,9 @@ const Home = () => {
         </div>
       </section>
 
-      <section className=" bg-green bg-[url('/images/home/cannabis-bg.png')] pt-10 pb-24">
-        <div className="container">
+      <section className=" bg-green relative pt-10 pb-24">
+       <CannabisBg className="opacity-40 w-full h-full absolute top-0 overflow-hidden" />
+        <div className="container relative z-10">
           <h2 className="text-[clamp(3.5rem,10vw,10rem)] text-center font-bold text-stroke-white text-[#1C8151]">CANNABIS</h2>
           <main className="lg:p-20 md:p-10 p-4 bg-body-light dark:bg-body-dark rounded-2xl ">
             <div className="flex lg:flex-row flex-col-reverse">

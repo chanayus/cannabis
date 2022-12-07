@@ -26,7 +26,7 @@ const BestSeller = ({ t }) => {
   }
 
   useEffect(() => {
-    const trigger = { trigger: containerRef.current, start: "10% 55%", end: "55% 55%" }
+    const trigger = { trigger: containerRef.current, start: "35% 50%", end: "+=50%", toggleActions: "play reverse play reverse" }
 
     gsap.fromTo(".round-progress", { opacity: 0, x: 50 }, { opacity: 1, x: 0, duration: 0.65, stagger: 0.25, scrollTrigger: trigger })
     gsap.fromTo(
