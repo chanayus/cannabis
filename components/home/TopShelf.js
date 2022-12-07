@@ -45,8 +45,9 @@ const TopShelf = ({ t }) => {
   }
 
   useEffect(() => {
-    const trigger = { trigger: containerRef.current, start: "40% 50%", end: "+=40%", toggleActions: "play reverse play reverse" }
+    const trigger = { trigger: containerRef.current, start: "20% 50%", end: "+=65%", toggleActions: "play reverse play reverse" }
 
+    gsap.fromTo(containerRef.current, { opacity: 0 }, { opacity: 1, duration: 0.65, scrollTrigger: trigger })
     gsap.fromTo("#top-shelf-img", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.65, delay: 0.25, scrollTrigger: trigger })
     gsap.fromTo("#top-slide-control", { opacity: 0, y: 25 }, { opacity: 1, y: 0, delay: 0.1, duration: 0.65, scrollTrigger: trigger })
     gsap.fromTo("#top-text-desc", { opacity: 0, x: 50 }, { opacity: 1, x: 0, duration: 0.65, scrollTrigger: trigger })

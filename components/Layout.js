@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion } from "framer-motion"
 import Navbar from "../components/Navbar"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
@@ -34,7 +34,6 @@ const Layout = ({ children }) => {
   return (
     <>
       <Navbar />
-      {/* <AnimatePresence mode="wait"> */}
         <motion.div
           exit={{ opacity: 0 }}
           initial={{ opacity: 0 }}
@@ -45,8 +44,6 @@ const Layout = ({ children }) => {
         >
           {children}
         </motion.div>
-      {/* </AnimatePresence> */}
-
       <Footer />
     </>
   )
