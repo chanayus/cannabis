@@ -25,16 +25,36 @@ const BestSeller = ({ t }) => {
   }
 
   useEffect(() => {
-    const trigger = { trigger: containerRef.current, start: "20% 50%", end: "+=65%", toggleActions: "play reverse play reverse" }
+    const animateMediaQuery = gsap.matchMedia()
+    const trigger = { trigger: containerRef.current, start: "20% 50%", end: "+=65%" }
 
-    gsap.fromTo(productDetailRef.current, { opacity: 0, y: 25 }, { opacity: 1, y: 0, delay: 0.1, duration: 0.65, scrollTrigger: trigger })
-    gsap.fromTo(".round-progress", { opacity: 0, x: 50 }, { opacity: 1, x: 0, duration: 0.65, stagger: 0.25, scrollTrigger: trigger })
-    gsap.fromTo(
-      "#best-seller-product-image",
-      { opacity: 0, scale: 0.75 },
-      { opacity: 1, scale: 1, delay: 0.1, duration: 0.65, scrollTrigger: trigger }
-    )
-   
+    animateMediaQuery.add("(max-width: 1024px)", () => {
+      gsap.fromTo(productDetailRef.current, { opacity: 0, y: 25 }, { opacity: 1, y: 0, delay: 0.1, duration: 0.65, scrollTrigger: trigger })
+      gsap.fromTo(".round-progress", { opacity: 0, x: 50 }, { opacity: 1, x: 0, duration: 0.65, stagger: 0.25, scrollTrigger: trigger })
+      gsap.fromTo(
+        "#best-seller-product-image",
+        { opacity: 0, scale: 0.75 },
+        { opacity: 1, scale: 1, delay: 0.1, duration: 0.65, scrollTrigger: trigger }
+      )
+    })
+
+    animateMediaQuery.add("(min-width: 1025px)", () => {
+      gsap.fromTo(
+        productDetailRef.current,
+        { opacity: 0, y: 25 },
+        { opacity: 1, y: 0, delay: 0.1, duration: 0.65, scrollTrigger: { ...trigger, toggleActions: "play reverse play reverse" } }
+      )
+      gsap.fromTo(
+        ".round-progress",
+        { opacity: 0, x: 50 },
+        { opacity: 1, x: 0, duration: 0.65, stagger: 0.25, scrollTrigger: { ...trigger, toggleActions: "play reverse play reverse" } }
+      )
+      gsap.fromTo(
+        "#best-seller-product-image",
+        { opacity: 0, scale: 0.75 },
+        { opacity: 1, scale: 1, delay: 0.1, duration: 0.65, scrollTrigger: { ...trigger, toggleActions: "play reverse play reverse" } }
+      )
+    })
   }, [])
 
   return (

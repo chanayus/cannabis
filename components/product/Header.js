@@ -33,7 +33,6 @@ const Header = ({ t }) => {
           <div className="mx-auto w-[13rem] h-[20rem] mb-2">
             <img
               id="best-seller-product-image"
-              priority={true}
               src="/images/products/1.png"
               alt="product-image"
               width={208}

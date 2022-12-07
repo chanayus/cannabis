@@ -23,20 +23,43 @@ const Home = () => {
     gsap.fromTo("#hero-quote", { opacity: 0, y: 20 }, { opacity: 1, y: 0, delay: 0.5, duration: 0.45 })
     gsap.fromTo("#hero-button", { opacity: 0, y: 20 }, { opacity: 1, y: 0, delay: 0.7, duration: 0.45 })
 
-    // Animate for why-order Section
+    const animateMediaQuery = gsap.matchMedia()
+
     const whyOrderTrigger = {
       trigger: whyOrderRef.current,
       start: "top center",
       end: "+=70%",
-      toggleActions: "play reverse play reverse",
     }
 
-    gsap.fromTo(whyOrderRef.current, { opacity: 0 }, { opacity: 1, duration: 0.35, scrollTrigger: whyOrderTrigger })
-    gsap.fromTo("[data-why-card]", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.35, stagger: 0.15, scrollTrigger: whyOrderTrigger })
+    const shopTrigger = { trigger: "#shop-section", start: "top center", end: "bottom center" }
 
-    //  Animate for Shop Section
-    const shopTrigger = { trigger: "#shop-section", start: "top center", end: "bottom center", toggleActions: "play reverse play reverse" }
-    gsap.fromTo("#shop-section", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.35, stagger: 0.15, scrollTrigger: shopTrigger })
+    animateMediaQuery.add("(max-width: 1024px)", () => {
+      // Animate for why-order Section
+      gsap.fromTo(whyOrderRef.current, { opacity: 0 }, { opacity: 1, duration: 0.35, scrollTrigger: whyOrderTrigger })
+      gsap.fromTo("[data-why-card]", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.35, stagger: 0.15, scrollTrigger: whyOrderTrigger })
+      //  Animate for Shop Section
+      gsap.fromTo("#shop-section", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.35, stagger: 0.15, scrollTrigger: shopTrigger })
+    })
+
+    animateMediaQuery.add("(min-width: 1025px)", () => {
+      // Animate for why-order Section
+      gsap.fromTo(
+        whyOrderRef.current,
+        { opacity: 0 },
+        { opacity: 1, duration: 0.35, scrollTrigger: { ...whyOrderTrigger, toggleActions: "play reverse play reverse" } }
+      )
+      gsap.fromTo(
+        "[data-why-card]",
+        { opacity: 0, y: 50 },
+        { opacity: 1, y: 0, duration: 0.35, stagger: 0.15, scrollTrigger: { ...whyOrderTrigger, toggleActions: "play reverse play reverse" } }
+      )
+      //  Animate for Shop Section
+      gsap.fromTo(
+        "#shop-section",
+        { opacity: 0, y: 50 },
+        { opacity: 1, y: 0, duration: 0.35, stagger: 0.15, scrollTrigger: { ...shopTrigger, toggleActions: "play reverse play reverse" } }
+      )
+    })
   }, [])
 
   return (
@@ -116,8 +139,8 @@ const Home = () => {
         </div>
       </section>
 
-      <section className=" bg-green relative pt-10 pb-24">
-        <CannabisBg className="opacity-30 w-full h-full absolute top-0 overflow-hidden" />
+      <section className=" bg-green relative pt-10 pb-24 lg:bg-none bg-[url('/images/home/cannabis-bg.png')]">
+        <CannabisBg className="opacity-30 w-full h-full absolute top-0 overflow-hidden lg:block hidden" />
         <div className="container relative z-10">
           <h2 className="text-[clamp(3.5rem,10vw,10rem)] text-center font-bold text-stroke-white text-[#1C8151]">CANNABIS</h2>
           <main className="lg:p-20 md:p-10 p-4 bg-body-light dark:bg-body-dark rounded-2xl ">
