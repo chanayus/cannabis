@@ -1,57 +1,56 @@
 import { motion } from "framer-motion"
 import useIsMounted from "../../hooks/useIsMounted"
 import styled, { keyframes } from "styled-components"
+import { useMemo } from "react"
+import { useRouter } from "next/router"
 
 const CannabisBg = (props) => {
+  const { pathname } = useRouter()
   const isMounted = useIsMounted()
-  const randomItems = () => {
+  const animateValueItems = useMemo(() => {
     const data = []
     ;[...new Array(100)].map(() => {
       data.push({
         x: Math.floor(Math.random() * 100),
         y: Math.floor(Math.random() * 100),
-        rotate: Math.floor(Math.random() * 360),
+        rotate: Math.ceil(Math.random() * 99) * (Math.round(Math.random()) ? 1 : -1),
+        rotateAnimRatio: Math.round(Math.random()) ? 1 : -1,
         scale: Math.random() * 1 + 0.1,
-        delay: Math.floor(Math.random() * 30) + 0.2,
-        duration: Math.floor(Math.random() * 50) + 30,
+        delay: Math.floor(Math.random() * 15) + 0.2,
+        duration: Math.floor(Math.random() * 50) + 40,
         snowOutline: Math.round(Math.random()),
       })
     })
     return [...data]
-  }
+  }, [pathname])
 
   return (
     <>
       <div {...props}>
         {isMounted &&
-          randomItems().map((item, index) => (
+          animateValueItems.map((item, index) => (
             <Cannabis
               key={`cannabis-${index}`}
               className="absolute origin-center will-change-transform"
               src="/images/home/cannabis.svg"
-              // initial={{ y: "0", opacity: 1, rotate: `${item.rotate}deg` }}
-              // animate={{ y: "400vh", opacity: 0, rotate: `${item.rotate + 360}deg` }}
-              // transition={{ ease: "linear", duration: item.duration, repeat: Infinity, delay: item.delay }}
               style={{
                 left: `${item.x}%`,
-                top: `-5.5%`,
+                top: `${item.y}%`,
                 rotate: `${item.rotate}deg`,
                 scale: `${item.scale}`,
               }}
               delay={item.delay}
+              rotateAnimRatio={item.rotateAnimRatio}
               duration={item.duration}
               rotate={item.rotate}
               alt="cannabis-item"
             />
           ))}
         {isMounted &&
-          randomItems().map((item, index) => (
+          animateValueItems.map((item, index) => (
             <Snow
               key={`snow-${index}`}
               className={`absolute w-4 h-4 rounded-full border-white will-change-transform border-2 ${item.snowOutline ? "" : "bg-white"}`}
-              // initial={{ y: "0", opacity: 1, rotate: `${item.rotate}deg` }}
-              // animate={{ y: "400vh", opacity: 0, rotate: `${item.rotate + 360}deg` }}
-              // transition={{ ease: "linear", duration: item.duration, repeat: Infinity, delay: item.delay }}
               style={{
                 left: `${item.x}%`,
                 top: `-5.5%`,
@@ -69,22 +68,34 @@ const CannabisBg = (props) => {
   )
 }
 
-const anim = (rotate) => keyframes`
+const snowAnim = () => keyframes`
   0% {
-    opacity: 1;
+    -webkit-transform: translateY(0vh);
   }
   100% {
-    opacity: 0;
-    -webkit-transform: translateY(400vh) rotate(${rotate + 360}deg);
+    opacity :0;
+    -webkit-transform: translateY(200vh);
+  }
+`
+
+const cannabisAnim = (rotate, rotateAnimRatio) => keyframes`
+  0% {
+    -webkit-transform: translate(0, 0) rotate(${rotate}deg);
+  }
+  50% {
+    -webkit-transform: translate(200px, ${200 * rotateAnimRatio}px) rotate(${rotate + 360 * rotateAnimRatio}deg);
+  }
+  100% {
+    -webkit-transform: translate(0, 0) rotate(${rotate}deg);
   }
 `
 
 const Cannabis = styled.img`
-  -webkit-animation: ${(props) => props.duration}s ${(props) => anim(props.rotate)} ${(props) => props.delay}s ease-in-out infinite;
+  -webkit-animation: ${(props) => props.duration}s ${(props) => cannabisAnim(props.rotate, props.rotateAnimRatio)} 0s linear infinite;
 `
 
 const Snow = styled.div`
-  -webkit-animation: ${(props) => props.duration}s ${(props) => anim(props.rotate)} ${(props) => props.delay}s ease-in-out infinite;
+  -webkit-animation: ${(props) => props.duration}s ${snowAnim()} 0s linear infinite;
 `
 
 export default CannabisBg

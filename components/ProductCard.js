@@ -2,7 +2,6 @@ import { FiShoppingCart } from "react-icons/fi"
 import { FaHeart } from "react-icons/fa"
 import { useState } from "react"
 import { useTranslation } from "react-i18next"
-import Image from "next/image"
 import NextLink from "./NextLink"
 
 const ProductCard = () => {

@@ -3,7 +3,6 @@ import { FaHeart } from "react-icons/fa"
 import { FiShoppingCart } from "react-icons/fi"
 import { useRef } from "react"
 import RoundProgress from "../RoundProgress"
-import Image from "next/image"
 import NextLink from "../NextLink"
 
 const Header = ({ t }) => {

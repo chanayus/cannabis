@@ -49,7 +49,7 @@ const TopShelf = ({ t }) => {
     const trigger = { trigger: containerRef.current, start: "20% 50%", end: "+=65%" }
 
     animateMediaQuery.add("(max-width: 1024px)", () => {
-      gsap.fromTo(containerRef.current, { opacity: 0 }, { opacity: 1, duration: 0.65, scrollTrigger: trigger })
+      gsap.fromTo("#img-slide-container", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.65, scrollTrigger: trigger })
       gsap.fromTo("#top-shelf-img", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.65, delay: 0.25, scrollTrigger: trigger })
       gsap.fromTo("#top-slide-control", { opacity: 0, y: 25 }, { opacity: 1, y: 0, delay: 0.1, duration: 0.65, scrollTrigger: trigger })
       gsap.fromTo("#top-text-desc", { opacity: 0, x: 50 }, { opacity: 1, x: 0, duration: 0.65, scrollTrigger: trigger })
@@ -57,9 +57,9 @@ const TopShelf = ({ t }) => {
 
     animateMediaQuery.add("(min-width: 1025px)", () => {
       gsap.fromTo(
-        containerRef.current,
-        { opacity: 0 },
-        { opacity: 1, duration: 0.65, scrollTrigger: { ...trigger, toggleActions: "play reverse play reverse" } }
+        "#img-slide-container",
+        { opacity: 0, y: 50 },
+        { opacity: 1, y: 0, duration: 0.65, scrollTrigger: { ...trigger, toggleActions: "play reverse play reverse" } }
       )
       gsap.fromTo(
         "#top-shelf-img",
@@ -106,7 +106,7 @@ const TopShelf = ({ t }) => {
           </div>
         </div>
 
-        <div className="p-8 relative w-full h-full">
+        <div className="p-8 relative w-full h-full" id="img-slide-container">
           <div className="w-full px-6 absolute flex justify-end left-0">
             <NextLink href="/" className="text-orange  ">
               {t("view all")}

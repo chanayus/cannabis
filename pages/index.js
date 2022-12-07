@@ -139,7 +139,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className=" bg-green relative pt-10 pb-24 lg:bg-none bg-[url('/images/home/cannabis-bg.png')]">
+      <section className=" bg-green relative pt-10 pb-24 lg:bg-none bg-cover bg-[url('/images/home/cannabis-bg.png')]">
         <CannabisBg className="opacity-30 w-full h-full absolute top-0 overflow-hidden lg:block hidden" />
         <div className="container relative z-10">
           <h2 className="text-[clamp(3.5rem,10vw,10rem)] text-center font-bold text-stroke-white text-[#1C8151]">CANNABIS</h2>
