@@ -14,7 +14,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 const Home = () => {
   const { t } = useTranslation(["common", "home"])
-  const whyOrderRef = useRef(null)
+  const containerRef = useRef(null)
 
   useEffect(() => {
     // Animate for Hero Section
@@ -26,16 +26,15 @@ const Home = () => {
     const animateMediaQuery = gsap.matchMedia()
 
     const whyOrderTrigger = {
-      trigger: whyOrderRef.current,
+      trigger: "#why-order-section",
       start: "top center",
       end: "+=70%",
     }
-
     const shopTrigger = { trigger: "#shop-section", start: "top center", end: "bottom center" }
 
     animateMediaQuery.add("(max-width: 1024px)", () => {
       // Animate for why-order Section
-      gsap.fromTo(whyOrderRef.current, { opacity: 0 }, { opacity: 1, duration: 0.35, scrollTrigger: whyOrderTrigger })
+      gsap.fromTo("#why-order-section", { opacity: 0 }, { opacity: 1, duration: 0.35, scrollTrigger: whyOrderTrigger })
       gsap.fromTo("[data-why-card]", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.35, stagger: 0.15, scrollTrigger: whyOrderTrigger })
       //  Animate for Shop Section
       gsap.fromTo("#shop-section", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.35, stagger: 0.15, scrollTrigger: shopTrigger })
@@ -44,7 +43,7 @@ const Home = () => {
     animateMediaQuery.add("(min-width: 1025px)", () => {
       // Animate for why-order Section
       gsap.fromTo(
-        whyOrderRef.current,
+        "#why-order-section",
         { opacity: 0 },
         { opacity: 1, duration: 0.35, scrollTrigger: { ...whyOrderTrigger, toggleActions: "play reverse play reverse" } }
       )
@@ -60,11 +59,13 @@ const Home = () => {
         { opacity: 1, y: 0, duration: 0.35, stagger: 0.15, scrollTrigger: { ...shopTrigger, toggleActions: "play reverse play reverse" } }
       )
     })
+
+    return () => animateMediaQuery.revert()
   }, [])
 
   return (
     <>
-      <main className="container lg:mb-24 mt-[3rem]">
+      <main className="container lg:mb-24 mt-[3rem]" ref={containerRef}>
         <header className="w-full min-h-[340px] h-[67vh] bg-[#000] rounded-xl overflow-hidden relative ">
           <div className="absolute md:p-10 p-8 w-full text-white bottom-[5%] z-10 ">
             <p id="hero-brand-text" className="text-lg opacity-0">
@@ -88,7 +89,7 @@ const Home = () => {
           />
         </header>
 
-        <section ref={whyOrderRef} className="text-center my-[8vh] opacity-0">
+        <section id="why-order-section" className="text-center my-[8vh] opacity-0">
           <img id="why-order-logo" src="/images/logo-mini.svg" alt="logo" width={50} height={50} className="mx-auto mb-6" />
           <h2 className="font-bold md:text-5xl text-4xl mb-3">{t("why-order-us.title", { ns: "home" })}</h2>
           <h4 className="md:text-2xl text-xl">{t("why-order-us.desc", { ns: "home" })}</h4>

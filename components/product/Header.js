@@ -1,15 +1,12 @@
 import React, { useState } from "react"
 import { FaHeart } from "react-icons/fa"
 import { FiShoppingCart } from "react-icons/fi"
-import { useRef } from "react"
 import RoundProgress from "../RoundProgress"
 import NextLink from "../NextLink"
 
 const Header = ({ t }) => {
   const [selectedWeight, setSelectedWeight] = useState("3g")
   const [liked, setLiked] = useState(false)
-  const containerRef = useRef(null)
-  const productDetailRef = useRef(null)
 
   const activeStyle = "w-14 h-12 bg-green text-white"
   const inActiveStyle = "w-14 h-12 border border-gray-light"
@@ -21,7 +18,7 @@ const Header = ({ t }) => {
   }
 
   return (
-    <section className="relative " ref={containerRef}>
+    <section className="relative">
       <div className="container-no-padding grid items-center lg:grid-cols-2 relative z-10 ">
         <div className="flex items-center md:flex-row flex-col-reverse p-8">
           <div className="grid gap-4 md:grid-cols-1 grid-cols-3">
@@ -31,7 +28,6 @@ const Header = ({ t }) => {
           </div>
           <div className="mx-auto w-[13rem] h-[20rem] mb-2">
             <img
-              id="best-seller-product-image"
               src="/images/products/1.png"
               alt="product-image"
               width={208}
@@ -41,7 +37,7 @@ const Header = ({ t }) => {
           </div>
         </div>
 
-        <div ref={productDetailRef} className="p-8 lg:bg-transparent lg:dark:bg-transparent bg-white dark:bg-black ">
+        <div className="p-8 lg:bg-transparent lg:dark:bg-transparent bg-white dark:bg-black ">
           <img src="/images/aaa.svg" alt="aaa-badge" width={120} height={40} className="mb-2 relative lg:left-[-8%] left-0" />
 
           <p className="text-green mb-4">Cannabis</p>

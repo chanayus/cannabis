@@ -77,6 +77,8 @@ const TopShelf = ({ t }) => {
         { opacity: 1, x: 0, duration: 0.65, scrollTrigger: { ...trigger, toggleActions: "play reverse play reverse" } }
       )
     })
+
+    return () => animateMediaQuery.revert()
   }, [])
 
   return (

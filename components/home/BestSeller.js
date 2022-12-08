@@ -55,6 +55,8 @@ const BestSeller = ({ t }) => {
         { opacity: 1, scale: 1, delay: 0.1, duration: 0.65, scrollTrigger: { ...trigger, toggleActions: "play reverse play reverse" } }
       )
     })
+
+    return () => animateMediaQuery.revert()
   }, [])
 
   return (

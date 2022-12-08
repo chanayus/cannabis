@@ -1,4 +1,3 @@
-import { motion } from "framer-motion"
 import useIsMounted from "../../hooks/useIsMounted"
 import styled, { keyframes } from "styled-components"
 import { useMemo } from "react"
@@ -9,7 +8,7 @@ const CannabisBg = (props) => {
   const isMounted = useIsMounted()
   const animateValueItems = useMemo(() => {
     const data = []
-    ;[...new Array(100)].map(() => {
+    ;[...new Array(75)].map(() => {
       data.push({
         x: Math.floor(Math.random() * 100),
         y: Math.floor(Math.random() * 100),
