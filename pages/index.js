@@ -63,7 +63,6 @@ const Home = () => {
   }, [])
 
   const triggerHeroAnimation = () => {
-    console.log("das");
     // Animate for Hero Section
     gsap.fromTo("#hero-image-cover", { opacity: 0, scale: 1.25 }, { opacity: 1, scale: 1, delay: 0.1, duration: 0.75 })
     gsap.fromTo("#hero-brand-text", { opacity: 0, y: 20 }, { opacity: 1, y: 0, delay: 0.3, duration: 0.45 })
