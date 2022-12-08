@@ -103,7 +103,7 @@ const Home = () => {
         <section id="why-order-section" className="text-center my-[8vh] opacity-0">
           <img id="why-order-logo" src="/images/logo-mini.svg" alt="logo" width={50} height={50} className="mx-auto mb-6" />
           <h2 className="font-bold md:text-5xl text-4xl mb-3">{t("why-order-us.title", { ns: "home" })}</h2>
-          <h4 className="md:text-2xl text-xl">{t("why-order-us.desc", { ns: "home" })}</h4>
+          <p className="md:text-2xl text-xl">{t("why-order-us.desc", { ns: "home" })}</p>
 
           <div className="grid lg:grid-cols-3 grid-cols-1 items-center mt-6 gap-6 ">
             <div data-why-card className="bg-[#EDEDED] dark:bg-black rounded-lg p-6 w-full h-full max-w-[480px] mx-auto">

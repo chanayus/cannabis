@@ -44,8 +44,8 @@ const Navbar = () => {
         <div className="container flex justify-between items-center relative z-30 ">
           <div className="flex items-center ">
             <NextLink href="/">
-              <img src={"/images/logo-full.svg"} alt="logo" width={175} className="lg:block hidden" />
-              <img src={"/images/logo-mini.svg"} alt="logo" width={35} className="lg:hidden block" />
+              <img src={"/images/logo-full.svg"} alt="logo" width={175} height={35} className="lg:block hidden" />
+              <img src={"/images/logo-mini.svg"} alt="logo" width={35} height={35} className="lg:hidden block" />
             </NextLink>
             <div className="text-green space-x-6 ml-8 md:block hidden">
               <NextLink href="/">{t("home")}</NextLink>

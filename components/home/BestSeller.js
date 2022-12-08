@@ -90,7 +90,7 @@ const BestSeller = ({ t }) => {
           <p className="text-green mb-4">{t("best seller")}</p>
           <div className="flex justify-between items-center">
             <h2 className="font-bold text-4xl leading-[1.15]">Strawberry Kush</h2>
-            <button onClick={() => setLiked(!liked)}>
+            <button aria-label="like" onClick={() => setLiked(!liked)}>
               {liked ? <FaHeart size="1.5rem" color="#de3c3c" /> : <FaRegHeart size="1.5rem" className="opacity-50" />}
             </button>
           </div>

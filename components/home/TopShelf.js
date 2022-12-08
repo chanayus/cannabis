@@ -138,7 +138,7 @@ const TopShelf = ({ t }) => {
                     >
                       {slideData[slideIndex - 1].name}
                     </motion.h3>
-                    <motion.h5
+                    <motion.p
                       onAnimationComplete={() => {
                         setIsUpdate(false)
                       }}
@@ -149,16 +149,16 @@ const TopShelf = ({ t }) => {
                       className="text-lg text-green"
                     >
                       {slideData[slideIndex - 1].type}
-                    </motion.h5>
+                    </motion.p>
                   </>
                 )}
               </AnimatePresence>
             </div>
             <div>
-              <button onClick={() => nextSlide()} className="border p-2 mb-2 border-green text-green">
+              <button aria-label="next-slide" onClick={() => nextSlide()} className="border p-2 mb-2 border-green text-green">
                 <IoChevronUpSharp size="1.5rem" />
               </button>
-              <button onClick={() => prevSlide()} className="border p-2 border-green text-white bg-green">
+              <button aria-label="prev-slide" onClick={() => prevSlide()} className="border p-2 border-green text-white bg-green">
                 <IoChevronDownSharp size="1.5rem" />
               </button>
             </div>
