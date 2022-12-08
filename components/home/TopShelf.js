@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react"
 import { IoChevronDownSharp, IoChevronUpSharp } from "react-icons/io5"
-import { motion, AnimatePresence } from "framer-motion"
+import { m as motion, AnimatePresence } from "framer-motion"
 import ScrollTrigger from "gsap/dist/ScrollTrigger"
 import gsap from "gsap"
 import NextLink from "../NextLink"

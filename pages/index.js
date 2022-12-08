@@ -1,14 +1,19 @@
 import NextLink from "../components/NextLink"
-
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
-import BestSeller from "../components/home/BestSeller"
-import TopShelf from "../components/home/TopShelf"
-import ProductCard from "../components/ProductCard"
 import { useEffect, useRef } from "react"
 import gsap from "gsap"
 import ScrollTrigger from "gsap/dist/ScrollTrigger"
 import { useTranslation } from "react-i18next"
-import CannabisBg from "../components/home/CannabisBg"
+import dynamic from "next/dynamic"
+import Image from "next/image"
+import heroImage from "../public/images/home/hero.jpg"
+
+const CannabisBg = dynamic(() => import("../components/home/CannabisBg"), {
+  ssr: false,
+})
+const ProductCard = dynamic(() => import("../components/ProductCard"))
+const BestSeller = dynamic(() => import("../components/home/BestSeller"))
+const TopShelf = dynamic(() => import("../components/home/TopShelf"))
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -17,12 +22,6 @@ const Home = () => {
   const containerRef = useRef(null)
 
   useEffect(() => {
-    // Animate for Hero Section
-    gsap.fromTo("#hero-image-cover", { opacity: 0, scale: 1.25 }, { opacity: 1, scale: 1, delay: 0.1, duration: 0.75 })
-    gsap.fromTo("#hero-brand-text", { opacity: 0, y: 20 }, { opacity: 1, y: 0, delay: 0.3, duration: 0.45 })
-    gsap.fromTo("#hero-quote", { opacity: 0, y: 20 }, { opacity: 1, y: 0, delay: 0.5, duration: 0.45 })
-    gsap.fromTo("#hero-button", { opacity: 0, y: 20 }, { opacity: 1, y: 0, delay: 0.7, duration: 0.45 })
-
     const animateMediaQuery = gsap.matchMedia()
 
     const whyOrderTrigger = {
@@ -63,6 +62,15 @@ const Home = () => {
     return () => animateMediaQuery.revert()
   }, [])
 
+  const triggerHeroAnimation = () => {
+    console.log("das");
+    // Animate for Hero Section
+    gsap.fromTo("#hero-image-cover", { opacity: 0, scale: 1.25 }, { opacity: 1, scale: 1, delay: 0.1, duration: 0.75 })
+    gsap.fromTo("#hero-brand-text", { opacity: 0, y: 20 }, { opacity: 1, y: 0, delay: 0.3, duration: 0.45 })
+    gsap.fromTo("#hero-quote", { opacity: 0, y: 20 }, { opacity: 1, y: 0, delay: 0.5, duration: 0.45 })
+    gsap.fromTo("#hero-button", { opacity: 0, y: 20 }, { opacity: 1, y: 0, delay: 0.7, duration: 0.45 })
+  }
+
   return (
     <>
       <main className="container lg:mb-24 mt-[3rem]" ref={containerRef}>
@@ -81,9 +89,12 @@ const Home = () => {
               <button className="px-8 py-3 border mr-8 ">{t("shop now")}</button>
             </div>
           </div>
-          <img
+          <Image
+            onLoadingComplete={() => triggerHeroAnimation()}
             id="hero-image-cover"
-            src="/images/home/hero.jpg"
+            layout="fill"
+            priority={true}
+            src={heroImage}
             alt="hero-image-cover"
             className="opacity-0 w-full h-full object-cover object-[30%_center]"
           />

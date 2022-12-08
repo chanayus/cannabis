@@ -8,7 +8,7 @@ const CannabisBg = (props) => {
   const isMounted = useIsMounted()
   const animateValueItems = useMemo(() => {
     const data = []
-    ;[...new Array(75)].map(() => {
+    ;[...new Array(95)].map(() => {
       data.push({
         x: Math.floor(Math.random() * 100),
         y: Math.floor(Math.random() * 100),
