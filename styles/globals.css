@@ -11,7 +11,8 @@ body {
   color: #333;
   -webkit-font-smoothing: antialiased;
   white-space: pre-line;
-  font-family: "Inter", "Noto Sans Thai", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: "Inter", "Noto Sans Thai", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+    Helvetica Neue, sans-serif;
 }
 
 [data-theme="dark"],
@@ -63,3 +64,8 @@ button {
 .text-stroke-white {
   text-shadow: 1px 1px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff;
 }
+
+.slick-list {
+  padding-top: 50px !important;
+}
+

@@ -4,12 +4,12 @@ import { useState } from "react"
 import { useTranslation } from "react-i18next"
 import NextLink from "./NextLink"
 
-const ProductCard = () => {
+const ProductCard = ({extraStyle}) => {
   const { t } = useTranslation("common")
   const [liked, setLiked] = useState(false)
 
   return (
-    <div className="bg-white dark:bg-black md:rounded-2xl rounded-lg sm:p-4 p-3 w-full max-w-[240px] md:mb-16">
+    <div className={`${extraStyle} bg-white dark:bg-black md:rounded-2xl rounded-lg sm:p-4 p-3 w-full max-w-[240px] md:mb-16`}>
       <div className="flex relative">
         <div className={`mb-6 mr-2 sm:block hidden text-green `}>
           <div className="text-center p-2 rounded-full bg-green-100 dark:bg-[rgb(49,74,65)] mb-4">
