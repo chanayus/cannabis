@@ -25,6 +25,8 @@ const BestSeller = ({ t }) => {
   }
 
   useEffect(() => {
+    gsap.to(".round-progress", { opacity: 0, x: 50, duration: 0 })
+
     const animateMediaQuery = gsap.matchMedia()
     const trigger = { trigger: containerRef.current, start: "20% 50%", end: "+=65%" }
 
