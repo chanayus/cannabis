@@ -49,7 +49,7 @@ const Feature = () => {
             </div>
           </div>
           <div className="p-6 rounded-lg bg-white dark:bg-black w-full flex-1 flex flex-col mt-4">
-            <h3 className="font-bold text-2xl mb-8">Effects</h3>
+            <h3 className="font-bold text-2xl mb-8">Medicinal</h3>
             <div className="flex justify-evenly items-center h-full gap-6 flex-wrap">
               <div className="w-32 h-32 border-8 border-green rounded-full flex justify-center items-center flex-col">
                 <FaRegMeh size="1.45rem" />

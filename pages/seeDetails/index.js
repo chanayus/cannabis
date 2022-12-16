@@ -2,22 +2,22 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import { useTranslation } from "react-i18next"
 
 const SeeDetail = () => {
-  const { t } = useTranslation(["common"])
+  const { t } = useTranslation(["common", "seeDetail"])
 
   return (
     <main className="container mt-28">
       <div className="text-center">
-        <h2 className="text-5xl font-bold text-green">See Details</h2>
-        <p className="text-2xl mt-4">Details of the product you ordered</p>
+        <h2 className="text-5xl font-bold text-green">{t("Header", { ns: "seeDetail" })}</h2>
+        <p className="text-2xl mt-4">{t("Desc", { ns: "seeDetail" })}</p>
       </div>
       {/* Table Desktop */}
       <table className="w-full mt-10 sm:table hidden table-auto">
         <thead className="border-b border-gray-white dark:border-gray">
           <tr className="py-4">
             <th className="text-left">PWB1060214589</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Total</th>
+            <th>{t("Price", { ns: "seeDetail" })}</th>
+            <th>{t("Quantity", { ns: "seeDetail" })}</th>
+            <th>{t("Total", { ns: "seeDetail" })}</th>
           </tr>
         </thead>
         <tbody>
@@ -53,15 +53,15 @@ const SeeDetail = () => {
               </div>
             </div>
             <div className="flex items-center justify-between text-lg my-4">
-              <p>Price</p>
+              <p>{t("Price", { ns: "seeDetail" })}</p>
               <p className="text-green">฿540/3G</p>
             </div>
             <div className="flex items-center justify-between text-lg my-4">
-              <p>Quantity</p>
+              <p>{t("Quantity", { ns: "seeDetail" })}</p>
               <div className="bg-green text-base py-1 px-2 rounded w-fit text-white font-bold">3G</div>
             </div>
             <div className="flex items-center justify-between text-lg my-4">
-              <p>Total</p>
+              <p>{t("Total", { ns: "seeDetail" })}</p>
               <p className=" text-orange font-bold text-xl">฿540</p>
             </div>
           </div>
@@ -74,7 +74,7 @@ const SeeDetail = () => {
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["common", "nav"])),
+      ...(await serverSideTranslations(locale, ["common", "seeDetail", "nav"])),
     },
   }
 }
