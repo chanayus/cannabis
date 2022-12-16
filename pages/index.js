@@ -7,13 +7,13 @@ import { useTranslation } from "react-i18next"
 import dynamic from "next/dynamic"
 import Image from "next/image"
 import heroImage from "../public/images/home/hero.jpg"
+import ProductCard from "../components/ProductCard"
+import BestSeller from "../components/home/BestSeller"
+import TopShelf from "../components/home/TopShelf"
 
 const CannabisBg = dynamic(() => import("../components/home/CannabisBg"), {
   ssr: false,
 })
-const ProductCard = dynamic(() => import("../components/ProductCard"))
-const BestSeller = dynamic(() => import("../components/home/BestSeller"))
-const TopShelf = dynamic(() => import("../components/home/TopShelf"))
 
 gsap.registerPlugin(ScrollTrigger)
 
