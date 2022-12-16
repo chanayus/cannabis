@@ -7,7 +7,7 @@ body {
   font-size: clamp(14px, 1.2vw, 16px);
   padding: 0;
   margin: 0;
-  background: #f4f4f4;
+  background: #F6F6F6;
   color: #333;
   -webkit-font-smoothing: antialiased;
   white-space: pre-line;
@@ -69,3 +69,17 @@ button {
   padding-top: 50px !important;
 }
 
+table th,
+table td {
+  padding: 1.25rem;
+  font-weight: 400;
+}
+
+.profile-menu-active {
+  border-right: 5px solid #ED744A;
+  background: linear-gradient(270deg, #1c8151 0%, rgba(28, 129, 81, 0.2) 139.92%), #ffffff;
+}
+
+.hide-scroll-bar::-webkit-scrollbar {
+  display: none;
+}
