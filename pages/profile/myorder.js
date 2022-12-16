@@ -1,8 +1,20 @@
-import React from "react"
+import { useState } from "react"
 import NextLink from "../../components/NextLink"
-import { BiChevronRight } from "react-icons/bi"
+import { BiChevronRight, BiChevronLeft } from "react-icons/bi"
+import ReactPaginate from "react-paginate"
 
 const MyOrder = () => {
+  const data = [...new Array(30).keys()]
+  const [currentPage, setCurrentPage] = useState(0)
+
+  const dataPerPage = 5
+  const pagesVisited = currentPage * dataPerPage
+  const totalPage = Math.ceil(data.length / dataPerPage)
+
+  const changePage = ({ selected }) => {
+    setCurrentPage(() => selected)
+  }
+
   return (
     <main className="w-full">
       <h3 className="font-bold text-2xl">Recent orders</h3>
@@ -17,15 +29,15 @@ const MyOrder = () => {
           </tr>
         </thead>
         <tbody>
-          {[...new Array(30)].map((item, index) => (
+          {data.slice(pagesVisited, pagesVisited + dataPerPage).map((item, index) => (
             <tr key={`product-item-${index}`} className="border-b border-gray-white dark:border-gray">
-              <td className="text-green text-lg">PWB1060214589</td>
+              <td className="text-green text-lg">{`PWB1060214589_${item}`}</td>
               <td className="text-lg text-center">28-11-2022 17:11</td>
               <td>
                 <div className="flex items-center flex-col">
                   <img src="/images/products/1.png" alt="product-img" width={100} className="lg:w-[4.3rem] w-16" />
                   <div className="text-center">
-                    <h4 className="text-lg font-bold">Strawberry Kush</h4>
+                    <h4 className="text-lg font-bold">Strawberry Kush_{item}</h4>
                     <p>earthy, sweet, floral</p>
                   </div>
                 </div>
@@ -44,18 +56,18 @@ const MyOrder = () => {
       </table>
       {/* Table Mobile */}
       <section className="mt-10 ">
-        {[...new Array(3)].map((item, index) => (
+        {data.slice(pagesVisited, pagesVisited + dataPerPage).map((item, index) => (
           <div key={`mobile-product-item-${index}`} className="w-full md:px-4 py-6 sm:hidden block border-b border-gray-white dark:border-gray">
             <div className="flex items-center">
               <img src="/images/products/1.png" alt="product-img" width={65} className="w-10" />
               <div className="ml-4">
-                <h4 className="text-xl font-bold">Strawberry Kush</h4>
+                <h4 className="text-xl font-bold">Strawberry Kush_{item}</h4>
                 <p>earthy, sweet, floral</p>
               </div>
             </div>
             <div className="flex items-center justify-between text-lg my-4 leading-[1.2]">
               <p>Order Number</p>
-              <p className="text-green">PWB1060214589</p>
+              <p className="text-green">{`PWB1060214589_${item}`}</p>
             </div>
             <div className="flex items-center justify-between text-lg my-4">
               <p>Price</p>
@@ -76,6 +88,16 @@ const MyOrder = () => {
           </div>
         ))}
       </section>
+
+      <ReactPaginate
+        previousLabel={<BiChevronLeft size="2rem"/>}
+        containerClassName={"w-full flex justify-center items-center gap-4 select-none mt-8"}
+        pageClassName="page-item"
+        activeClassName="page-item-active"
+        nextLabel={<BiChevronRight size="2rem"/>}
+        pageCount={totalPage}
+        onPageChange={changePage}
+      />
     </main>
   )
 }
