@@ -4,7 +4,7 @@ import { AiOutlineUser } from "react-icons/ai"
 import { useRouter } from "next/router"
 import { BiChevronRight } from "react-icons/bi"
 import { useState } from "react"
-import {  m as motion } from "framer-motion"
+import { m as motion } from "framer-motion"
 
 const ProfileMenu = () => {
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -18,7 +18,7 @@ const ProfileMenu = () => {
         mobileOpen ? "" : "translate-x-[-105%]"
       } bg-green rounded-lg pb-6 w-full max-w-[285px] h-[70vh] max-h-[530px] lg:translate-y-[0] translate-y-[-50%] z-20 lg:sticky fixed lg:top-[90px] top-1/2 text-white`}
     >
-      <motion.section layout className="hide-scroll-bar overflow-y-scroll h-[70vh]">
+      <section layout className="hide-scroll-bar overflow-y-scroll h-[70vh]">
         <h3 className="font-bold text-xl flex items-center p-6">
           <MdOutlineReceiptLong size="2rem" className="mr-2" />
           My Order
@@ -52,7 +52,7 @@ const ProfileMenu = () => {
           Favorite
           {pathname === "/profile" && ActiveMenu}
         </NextLink>
-      </motion.section>
+      </section>
 
       <button
         onClick={() => setMobileOpen(!mobileOpen)}

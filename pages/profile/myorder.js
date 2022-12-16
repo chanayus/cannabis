@@ -8,7 +8,7 @@ const MyOrder = () => {
       <h3 className="font-bold text-2xl">Recent orders</h3>
       {/* Table Desktop */}
       <table className="w-full mt-4 sm:table hidden table-auto">
-        <thead className="border-b border-gray-white dark:border-gray bg-body-light sticky z-10 lg:top-[7.5vh] top-[65px]">
+        <thead className="border-b border-gray-white dark:border-gray bg-body-light dark:bg-body-dark sticky z-10 lg:top-[7.5vh] top-[65px]">
           <tr className="py-4 ">
             <th className="text-left">Purchase order number</th>
             <th>Price</th>
