@@ -57,7 +57,7 @@ const ProductDetail = () => {
         <section className="mt-8">
           <h4 className="text-green font-semibold text-2xl">Cannabis</h4>
           <h2 className="font-bold text-5xl my-2 ">Featured products</h2>
-          <p className="text-xl mb-8">Choose your favorite strains. Prices will not calculated on checkout.</p>
+          <p className="text-xl lg:mb-8">Choose your favorite strains. Prices will not calculated on checkout.</p>
           <Slider {...slideSettings}>
             {[...new Array(16)].map((item, index) => (
               <div key={index} className="px-2">
