@@ -90,14 +90,23 @@ const MyOrder = () => {
       </section>
 
       <ReactPaginate
-        previousLabel={<BiChevronLeft size="2rem"/>}
-        containerClassName={"w-full flex justify-center items-center gap-4 select-none mt-8"}
+        previousLabel={<BiChevronLeft size="2rem" />}
+        containerClassName={"w-full sm:flex hidden justify-center items-center gap-2 select-none mt-8"}
         pageClassName="page-item"
         activeClassName="page-item-active"
-        nextLabel={<BiChevronRight size="2rem"/>}
+        nextLabel={<BiChevronRight size="2rem" />}
         pageCount={totalPage}
         onPageChange={changePage}
       />
+      <div className="sm:hidden flex items-center justify-center mt-8">
+        <button disabled={currentPage === 0} onClick={() => setCurrentPage((prev) => prev - 1)}>
+          <BiChevronLeft size="2rem" />
+        </button>
+        <div className="w-10 p-2 rounded-lg text-center border mx-4 font-bold">{currentPage+1}</div>
+        <button disabled={currentPage === totalPage-1} onClick={() => setCurrentPage((prev) => prev + 1)}>
+          <BiChevronRight size="2rem" />
+        </button>
+      </div>
     </main>
   )
 }
