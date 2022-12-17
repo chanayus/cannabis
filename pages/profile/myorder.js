@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import NextLink from "../../components/NextLink"
 import { BiChevronRight, BiChevronLeft } from "react-icons/bi"
 import ReactPaginate from "react-paginate"
@@ -14,6 +14,10 @@ const MyOrder = () => {
   const changePage = ({ selected }) => {
     setCurrentPage(() => selected)
   }
+
+  useEffect(() => {
+    window.scroll(0, 0)
+  },[currentPage])
 
   return (
     <main className="w-full">
